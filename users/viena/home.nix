@@ -13,8 +13,8 @@ in
   home.homeDirectory = "/home/viena";
   home.stateVersion = "25.11";
 
-  home.file.".config/kitty/kitty.conf".source = ./kitty/kitty.conf;
-  home.file.".config/niri/config.kdl".source = ./niri/config.kdl;
+  home.file.".config/kitty".source = ./kitty;
+  home.file.".config/niri".source = ./niri;
   home.file.".config/waybar".source = ./waybar;
   home.file.".local/bin".source = ./bin;
 

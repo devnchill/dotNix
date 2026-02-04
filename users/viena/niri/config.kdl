@@ -6,7 +6,6 @@ spawn-at-startup "swww-daemon"
 spawn-at-startup "swww img ~/Pictures/wallpapers/gruvbox-dark.png"
 
 workspace "study"
-workspace "terminal"
 workspace "coding"
 workspace "fun"
 workspace "chat"
@@ -15,7 +14,7 @@ workspace "music"
 
 window-rule{
   match app-id="kitty" 
-  open-on-workspace "terminal"
+  open-on-workspace "coding"
 }
 
 window-rule{
