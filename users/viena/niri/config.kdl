@@ -134,6 +134,7 @@ binds {
     Alt+Shift+B { spawn "brave" "--window-name=fun" "--profile-directory=Profile 2"; }
     Alt+Shift+S {spawn "spotify";}
     Mod+D hotkey-overlay-title="Open rofi" { spawn-sh "rofi -show drun"; }
+	Mod+T {spawn "thunar";}
     Mod+Ctrl+F {maximize-window-to-edges;}
 
     Super+Alt+S allow-when-locked=true hotkey-overlay-title=null { spawn-sh "pkill orca || exec orca"; }
