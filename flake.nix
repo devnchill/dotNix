@@ -2,10 +2,10 @@
     description = "My NisOS system flake";
 
     inputs = {
-        nixpkgs.url = "github:NixOS/nixpkgs/nixos-25.11";
-        home-manager.url="github:nix-community/home-manager/release-25.11";
-	home-manager.inputs.nixpkgs.follows = "nixpkgs";
-	spicetify-nix.url = "github:Gerg-L/spicetify-nix";
+        nixpkgs.url = "github:nixOS/nixpkgs?ref=nixos-unstable";
+        home-manager.url="github:nix-community/home-manager";
+		home-manager.inputs.nixpkgs.follows = "nixpkgs";
+		spicetify-nix.url = "github:Gerg-L/spicetify-nix";
     };
 
     outputs = inputs@{self,nixpkgs,home-manager,...}:{
