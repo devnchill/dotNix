@@ -48,6 +48,7 @@
    system.autoUpgrade.enable =true;
    system.autoUpgrade.allowReboot=true;
 
+  programs.fish.enable=true;
   programs.niri.enable = true;
   programs.xwayland.enable=true;
   programs.thunar.enable = true;

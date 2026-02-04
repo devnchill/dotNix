@@ -6,6 +6,7 @@ let
 in
 {
   imports = [
+  	./modules/fish
     inputs.spicetify-nix.homeManagerModules.default
   ];
 
