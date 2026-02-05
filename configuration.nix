@@ -71,6 +71,8 @@
       kitty
       curl
       fzf
+	  brave
+	  vesktop
    ];
 
    fonts.packages = with pkgs;[
