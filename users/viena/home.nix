@@ -35,8 +35,7 @@ in
       shuffle
     ];
 
-    theme = spicePkgs.themes.catppuccin;
-    colorScheme = "mocha";
+    theme = spicePkgs.themes.matte;
   };
 
   programs.git = {

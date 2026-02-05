@@ -13,6 +13,20 @@ workspace "stream"
 workspace "music"
 
 window-rule{
+	open-on-workspace "study"
+	match title="study"
+}
+
+window-rule{
+	open-on-workspace "fun"
+	match title="fun"
+}
+window-rule{
+	open-on-workspace "coding"
+	match title="coding"
+}
+
+window-rule{
   match app-id="kitty" 
   open-on-workspace "coding"
 }
@@ -28,7 +42,7 @@ window-rule{
 }
 
 window-rule{
-  match app-id="^(kitty|spotify|vesktop)$"
+  match app-id="^(kitty|spotify|vesktop|brave-browser)$"
   open-maximized true
   open-focused true
 }
