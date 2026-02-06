@@ -12,9 +12,10 @@
   home.homeDirectory = "/home/viena";
   home.stateVersion = "25.11";
 
-  home.file.".config/kitty".source = ./kitty;
-  home.file.".config/niri".source = ./niri;
-  home.file.".config/waybar".source = ./waybar;
+  home.file.".config/kitty".source = ./config/kitty;
+  home.file.".config/niri".source = ./config/niri;
+  home.file.".config/waybar".source = ./config/waybar;
+  home.file.".config/nvim".source = ./config/nvim;
   home.file.".local/bin".source = ./bin;
 
   programs.neovim = {
