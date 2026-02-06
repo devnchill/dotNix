@@ -4,7 +4,7 @@
   programs.neovim = {
   	enable = true;
 	plugins = with pkgs.vimPlugins;[
-		gruvbox
+		gruvbox-nvim
 	];
   };
 }

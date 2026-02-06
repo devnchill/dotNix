@@ -1,4 +1,2 @@
-require("config.options")
-
-vim.cmd.colorscheme("gruvbox")
-
+require("config")
+require("plugins")
