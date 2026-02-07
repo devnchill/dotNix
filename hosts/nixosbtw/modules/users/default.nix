@@ -4,7 +4,7 @@
  	users.users.viena = {
  	  initialPassword="password";
  	  isNormalUser = true;
- 	  extraGroups = [ "wheel" "networkmanager" ]; # Enable ‘sudo’ for the user.
+ 	  extraGroups = [ "wheel" "networkmanager" "docker"]; 
  	  shell=pkgs.fish;
  	};
 }
