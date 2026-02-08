@@ -12,6 +12,7 @@
 		mini-icons
 		which-key-nvim
 		blink-cmp
+		tmux-nvim
 	];
   };
 	home.packages = with pkgs;[
