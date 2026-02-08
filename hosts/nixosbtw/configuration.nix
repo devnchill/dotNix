@@ -13,10 +13,6 @@
       ./modules/virtualization
     ];
 
-  networking.hostName = "nixosbtw"; # Define your hostname.
-
-  networking.networkmanager.enable = true;
-
   time.timeZone = "Asia/Kolkata";
 
   nixpkgs.config.allowUnfree=true;
