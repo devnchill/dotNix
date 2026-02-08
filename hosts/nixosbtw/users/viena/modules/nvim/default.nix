@@ -13,9 +13,12 @@
 		which-key-nvim
 		blink-cmp
 		tmux-nvim
+		conform-nvim
 	];
-  };
-	home.packages = with pkgs;[
+
+	extraPackages=with pkgs;[
+		stylua
 		lua-language-server
 	];
+  };
 }
