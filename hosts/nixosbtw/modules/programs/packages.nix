@@ -17,6 +17,7 @@
       fzf
 	  brave
 	  vesktop
+	  docker-compose
    ];
 
    fonts.packages = with pkgs;[
