@@ -8,6 +8,7 @@
 	vimdiffAlias=true;
 	plugins = with pkgs.vimPlugins;[
 		gruvbox-nvim
+		snacks-nvim
 	];
   };
 }
