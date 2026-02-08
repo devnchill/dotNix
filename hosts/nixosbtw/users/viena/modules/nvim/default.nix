@@ -9,6 +9,12 @@
 	plugins = with pkgs.vimPlugins;[
 		gruvbox-nvim
 		snacks-nvim
+		mini-icons
+		which-key-nvim
+		blink-cmp
 	];
   };
+	home.packages = with pkgs;[
+		lua-language-server
+	];
 }

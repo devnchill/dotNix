@@ -85,3 +85,6 @@ map("n", "<C-_>", function() Snacks.terminal() end, { desc = "Toggle Terminal" }
 map({ "n", "t" }, "]]", function() Snacks.words.jump(vim.v.count1) end, { desc = "Next Reference" })
 map({ "n", "t" }, "[[", function() Snacks.words.jump(-vim.v.count1) end, { desc = "Prev Reference" })
 
+-- WHICH KEY 
+vim.keymap.set("n", "<leader>?", function() require("which-key").show({ global = false }) end, { desc = "Global keymap" })
+

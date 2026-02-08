@@ -12,9 +12,9 @@ require("snacks").setup({
             position = "right", -- this moves the explorer to the right
           },
         },
-        -- optional: preset sidebar without preview
-        preset = "sidebar",
-        preview = false,
+        -- -- optional: preset sidebar without preview
+        -- preset = "sidebar",
+        -- preview = false,
       },
     },
   },

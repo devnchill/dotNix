@@ -4,7 +4,6 @@
    environment.systemPackages = with pkgs; [
    	  ripgrep
 	  fd
-	  gh
    	  xwayland-satellite
       jq
       brightnessctl
