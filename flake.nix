@@ -16,7 +16,7 @@
       home-manager.useGlobalPkgs = true;
       home-manager.useUserPackages = true;
       home-manager.backupFileExtension = "backup";
-      home-manager.users.viena = ./users/viena/home.nix;
+      home-manager.users.viena = ./hosts/nixosbtw/users/viena/home.nix;
       home-manager.extraSpecialArgs = { inherit inputs; };
     };
   in
