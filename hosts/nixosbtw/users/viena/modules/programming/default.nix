@@ -11,6 +11,6 @@
     nodejs
     typescript-go
     rustup
-    llvmPackages_22.clang-tools
+    llvmPackages_22.clang-unwrapped
   ];
 }

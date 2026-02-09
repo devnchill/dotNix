@@ -26,6 +26,7 @@
       prettier
       nixfmt
       ruff
+      ormolu
     ];
 
   };
