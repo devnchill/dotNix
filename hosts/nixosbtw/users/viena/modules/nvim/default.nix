@@ -14,11 +14,14 @@
 		blink-cmp
 		tmux-nvim
 		conform-nvim
+		grug-far-nvim
+		gitsigns-nvim
 	];
 
 	extraPackages=with pkgs;[
 		stylua
 		lua-language-server
 	];
+
   };
 }
