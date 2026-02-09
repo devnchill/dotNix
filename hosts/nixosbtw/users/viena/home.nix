@@ -2,11 +2,12 @@
 
 {
   imports = [
-  	./modules/spicetify
-  	./modules/fish
-  	./modules/cli
-  	./modules/git
-  	./modules/nvim
+    ./modules/spicetify
+    ./modules/fish
+    ./modules/cli
+    ./modules/git
+    ./modules/nvim
+    ./modules/programming
   ];
 
   home.username = "viena";
@@ -21,4 +22,3 @@
   home.file.".local/bin".source = ./bin;
 
 }
-
