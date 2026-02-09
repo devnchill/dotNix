@@ -7,7 +7,7 @@
 	vimAlias=true;
 	vimdiffAlias=true;
 	plugins = with pkgs.vimPlugins;[
-		gruvbox-nvim
+		gruvbox-material
 		snacks-nvim
 		mini-icons
 		which-key-nvim
@@ -16,6 +16,7 @@
 		conform-nvim
 		grug-far-nvim
 		gitsigns-nvim
+		cord-nvim
 	];
 
 	extraPackages=with pkgs;[

@@ -216,14 +216,6 @@ map("n", "<leader>un", function()
 	Snacks.notifier.hide()
 end, "Dismiss Notifications")
 
-map({ "n", "t" }, "<C-/>", function()
-	Snacks.terminal()
-end, "Toggle Terminal")
-
-map({ "n", "t" }, "<C-_>", function()
-	Snacks.terminal()
-end, "Toggle Terminal")
-
 map({ "n", "t" }, "]]", function()
 	Snacks.words.jump(vim.v.count1)
 end, "Next Reference")
@@ -233,5 +225,15 @@ end, "Prev Reference")
 
 -- WHICH KEY
 map("n", "<leader>?", function()
-	which_key.show({ global = false })
+	require("which-key").show({ global = false })
 end, "Global keymap for which key")
+
+-- TERMINAL
+map("t", "<C-q>", [[<C-\><C-n>]])
+map({ "n", "t" }, "<C-/>", function()
+	Snacks.terminal()
+end, "Toggle Terminal")
+
+map({ "n", "t" }, "<C-_>", function()
+	Snacks.terminal()
+end, "Toggle Terminal")
