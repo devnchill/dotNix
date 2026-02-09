@@ -4,7 +4,6 @@
   imports = [
   	./packages.nix
   ];
-  programs.ssh.startAgent=true;
   programs.fish.enable=true;
   programs.niri.enable = true;
   programs.xwayland.enable=true;
