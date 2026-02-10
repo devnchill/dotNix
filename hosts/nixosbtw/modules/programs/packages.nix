@@ -1,28 +1,30 @@
-{config,pkgs,...}:
+{ config, pkgs, ... }:
 
 {
-   environment.systemPackages = with pkgs; [
-   	  ripgrep
-	  fd
-   	  xwayland-satellite
-      jq
-      brightnessctl
-      swaynotificationcenter
-      bibata-cursors
-      fastfetch
-      rofi
-      swww
-      file
-      wget
-      btop
-      kitty
-      curl
-      fzf
-	  brave
-	  vesktop
-   ];
+  environment.systemPackages = with pkgs; [
+    ripgrep
+    fd
+    xwayland-satellite
+    jq
+    brightnessctl
+    swaynotificationcenter
+    bibata-cursors
+    whitesur-icon-theme
+    pavucontrol
+    fastfetch
+    rofi
+    swww
+    file
+    wget
+    btop
+    kitty
+    curl
+    fzf
+    brave
+    vesktop
+  ];
 
-   fonts.packages = with pkgs;[
-       nerd-fonts.jetbrains-mono
-   ];
+  fonts.packages = with pkgs; [
+    nerd-fonts.jetbrains-mono
+  ];
 }
