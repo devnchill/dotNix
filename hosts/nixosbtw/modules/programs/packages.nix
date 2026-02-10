@@ -2,6 +2,7 @@
 
 {
   environment.systemPackages = with pkgs; [
+    mpv
     ripgrep
     fd
     xwayland-satellite
