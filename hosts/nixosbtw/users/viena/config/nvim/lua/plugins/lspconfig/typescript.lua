@@ -1,5 +1,12 @@
 vim.lsp.config["typescript_lsp"] = {
-	command = { "typescript-language-server", "--stdio" },
-	filetypes = { "ts", "tsx", "js", "jsx", "cjs", "cts", "mjs", "mts" },
+  cmd = { "typescript-language-server", "--stdio" },
+  filetypes = {
+    "typescript",
+    "typescriptreact",
+    "javascript",
+    "javascriptreact",
+  },
 }
-vim.lsp.enable("typescript-language-server")
+
+vim.lsp.enable("typescript_lsp")
+
