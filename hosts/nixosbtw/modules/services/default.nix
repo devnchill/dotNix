@@ -13,4 +13,15 @@
     pulse.enable = true;
     alsa.enable = true;
   };
+
+  # knot dns resolver
+  services.kresd.enable = true;
+
+  # disable built-in dns
+  services.resolved.enable = false;
+
+  environment.etc."resolv.conf" = {
+    mode = "0644";
+    text = "nameserver ::1";
+  };
 }

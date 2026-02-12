@@ -2,6 +2,9 @@
 
 {
   environment.systemPackages = with pkgs; [
+  	wireguard-tools
+	protonvpn-gui
+	proton-vpn-cli
     mpv
     ripgrep
     fd

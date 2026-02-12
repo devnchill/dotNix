@@ -57,6 +57,7 @@ input {
 
     touchpad {
         tap
+		dwt
     }
 
     mouse {
