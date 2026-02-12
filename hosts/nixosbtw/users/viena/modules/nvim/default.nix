@@ -18,6 +18,7 @@
       grug-far-nvim
       gitsigns-nvim
       cord-nvim
+	  bufferline-nvim
     ];
 
     extraPackages = with pkgs; [

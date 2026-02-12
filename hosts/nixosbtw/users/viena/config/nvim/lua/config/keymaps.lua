@@ -2,6 +2,14 @@ local function map(mode, lhs, rhs, desc)
 	vim.keymap.set(mode, lhs, rhs, { desc = desc })
 end
 
+-- Bufferline -
+map("n","<leader>wo",":only<CR>","close other windows")
+map("n","<leader>bo",":BufferLineCloseOthers<CR>","close other buffers")
+map("n","<leader>bl",":BufferLineCloseLeft<CR>","close left buffers")
+map("n","<leader>br",":BufferLineCloseRight<CR>","close right buffers")
+map("n","H",":bprev<CR>","goto next buffer")
+map("n","L",":bnext<CR>","goto prev buffer")
+
 -- Top Pickers & Explorer
 map("n", "<leader><space>", function()
 	Snacks.picker.smart()

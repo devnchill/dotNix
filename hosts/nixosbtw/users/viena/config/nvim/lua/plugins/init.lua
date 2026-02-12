@@ -1,4 +1,5 @@
 require("plugins.colorscheme")
+require("plugins.bufferline")
 require("plugins.mini-icons")
 require("plugins.snacks")
 require("plugins.blink")
