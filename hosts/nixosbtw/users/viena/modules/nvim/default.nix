@@ -19,6 +19,7 @@
       gitsigns-nvim
       cord-nvim
 	  bufferline-nvim
+	  trouble-nvim
     ];
 
     extraPackages = with pkgs; [
