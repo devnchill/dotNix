@@ -282,8 +282,6 @@ binds {
     Mod+Shift+8 { move-window-to-workspace 8; }
     Mod+Shift+9 { move-window-to-workspace 9; }
 
-    Mod+Tab { focus-workspace-previous; }
-
     Mod+BracketLeft  { consume-or-expel-window-left; }
     Mod+BracketRight { consume-or-expel-window-right; }
 
@@ -332,6 +330,20 @@ binds {
 
     Mod+Shift+N {
         spawn "swaync-client" "-C"
+	}
 }
 
+recent-windows{
+	binds  {
+		// all window of same app-id
+		Alt+grave       { next-window     scope="all" filter="app-id"; }
+        Alt+Shift+grave { previous-window scope="all" filter="app-id"; }
+
+		// all windows
+		Mod+Ctrl+Tab {next-window scope="all" ;}
+		Mod+Ctrl+Shift+Tab {previous-window scope="all" ;}
+		// all windows inside current workspace
+		Alt+Tab {next-window scope="workspace";}
+		Alt+Shift+Tab {previous-window scope="workspace";}
+	}
 }
