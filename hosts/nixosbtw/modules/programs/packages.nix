@@ -2,10 +2,10 @@
 
 {
   environment.systemPackages = with pkgs; [
-  	bruno
-  	wireguard-tools
-	protonvpn-gui
-	proton-vpn-cli
+    bruno
+    wireguard-tools
+    protonvpn-gui
+    proton-vpn-cli
     mpv
     ripgrep
     fd
