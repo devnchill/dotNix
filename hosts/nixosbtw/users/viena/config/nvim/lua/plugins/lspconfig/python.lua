@@ -10,6 +10,14 @@ vim.lsp.config["python_ls"] = {
 		"Pipfile",
 		".git",
 	},
+	settings = {
+		python = {
+			analysis = {
+				autoSearchPaths = true,
+				useLibraryCodeForTypes = true,
+			},
+		},
+	},
 }
 
 vim.lsp.enable("python_ls")
