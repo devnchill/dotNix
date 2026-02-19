@@ -12,4 +12,5 @@ require("plugins.lspconfig.python")
 
 vim.diagnostic.config({
 	virtual_text = true,
+	underline = false,
 })
