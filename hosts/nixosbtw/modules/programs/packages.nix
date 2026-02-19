@@ -2,6 +2,7 @@
 
 {
   environment.systemPackages = with pkgs; [
+    git-crypt
     bruno
     wireguard-tools
     protonvpn-gui
