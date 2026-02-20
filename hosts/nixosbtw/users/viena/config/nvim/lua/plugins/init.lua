@@ -1,6 +1,6 @@
 require("plugins.colorscheme")
 require("plugins.bufferline")
-require("plugins.mini-icons")
+require("plugins.mini")
 require("plugins.snacks")
 require("plugins.blink")
 require("plugins.lspconfig")

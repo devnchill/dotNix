@@ -10,7 +10,9 @@
       nvim-treesitter.withAllGrammars
       gruvbox-material
       snacks-nvim
+      mini-ai
       mini-icons
+      mini-pairs
       which-key-nvim
       blink-cmp
       tmux-nvim
@@ -18,8 +20,8 @@
       grug-far-nvim
       gitsigns-nvim
       cord-nvim
-	  bufferline-nvim
-	  trouble-nvim
+      bufferline-nvim
+      trouble-nvim
     ];
 
     extraPackages = with pkgs; [

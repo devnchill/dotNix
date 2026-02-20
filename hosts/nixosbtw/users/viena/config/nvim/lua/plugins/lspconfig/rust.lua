@@ -7,7 +7,12 @@ vim.lsp.config["rust_analyzer"] = {
 			cargo = {
 				allFeatures = true,
 			},
-			checkOnSave = true,
+			lens = { enable = true },
+			checkOnSave = {
+				enable = true,
+				command = "clippy",
+				allFeatures = true,
+			},
 		},
 	},
 }

@@ -18,6 +18,7 @@
   home.file.".config/niri".source = ./config/niri;
   home.file.".config/waybar".source = ./config/waybar;
   home.file.".config/nvim".source = ./config/nvim;
+  home.file.".config/fastfetch".source = ./config/fastfetch;
   home.file.".tmux.conf".source = ./config/tmux/.tmux.conf;
   home.file.".local/bin".source = ./bin;
 
