@@ -35,6 +35,8 @@
       #    haskell-language-server
       #    jdt-language-server
       #    vscode-json-languageserver
+      #    vscode-css-languageserver
+      #	   tailwindcss-language-server
       #    ruff
       #    typescript-language-server
       #    pyright
