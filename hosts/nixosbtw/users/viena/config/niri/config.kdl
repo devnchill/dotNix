@@ -3,7 +3,7 @@ prefer-no-csd
 spawn-at-startup "pkill wabybar && waybar"
 spawn-at-startup "swaync"
 spawn-at-startup "swww-daemon"
-spawn-at-startup "swww img ~/Pictures/wallpapers/gruvbox-dark.png"
+spawn-at-startup "swww img ~/Pictures/wallpapers/shop.png"
 
 workspace "study"
 workspace "coding"
@@ -61,6 +61,7 @@ input {
     }
 
     mouse {
+		scroll-factor 3
     }
 
     trackpoint {
