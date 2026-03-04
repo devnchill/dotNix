@@ -2,6 +2,8 @@
 
 {
   environment.systemPackages = with pkgs; [
+    baobab
+    ncdu
     git-crypt
     bruno
     wireguard-tools
