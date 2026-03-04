@@ -10,6 +10,7 @@
   programs.thunar.enable = true;
   programs.waybar.enable = true;
   programs.tmux.enable = true;
+  programs.obs-studio.enable = true;
   programs.gnupg = {
     agent.enable = true;
   };
