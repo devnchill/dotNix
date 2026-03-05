@@ -2,6 +2,7 @@
 
 {
   environment.systemPackages = with pkgs; [
+    sddm-astronaut
     baobab
     ncdu
     git-crypt
