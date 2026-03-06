@@ -1,6 +1,5 @@
 prefer-no-csd
 
-spawn-at-startup "pkill wabybar && waybar"
 spawn-at-startup "swaync"
 spawn-at-startup "swww-daemon"
 spawn-at-startup "swww img ../../../../../../asset/wallpapers/black_white_girl_with_sword.jpg"

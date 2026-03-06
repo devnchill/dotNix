@@ -39,20 +39,20 @@
         "format": "󰘚 {usage}%",
         "tooltip": true,
         "interval": 1,
-        "on-click": "kitty -e btop"
+        "on-click": "/run/current-system/sw/bin/kitty -e /run/current-system/sw/bin/btop"
     },
 
     "memory": {
         "format": "󰍛 {}%",
         "interval": 1,
-        "on-click": "kitty -e btop"
+        "on-click": "/run/current-system/sw/bin/kitty -e /run/current-system/sw/bin/btop"
     },
 
     "temperature": {
         "critical-threshold": 80,
         "format": "{icon} {temperatureC}°C",
         "format-icons": ["󱃃", "󰔏", "󱃂"],
-        "on-click": "kitty -e s-tui"
+        "on-click": "/run/current-system/sw/bin/kitty -e s-tui"
     },
 
     "battery": {
@@ -75,12 +75,12 @@
         "format-disconnected": "󰖪 Disconnected",
         "format-alt": "{ifname}: {ipaddr}/{cidr}",
         "tooltip-format": "{ifname}: {ipaddr}",
-        "on-click": "kitty -e nmtui"
+        "on-click": "/run/current-system/sw/bin/kitty -e /run/current-system/sw/bin/nmtui"
     },
 
 	"bluetooth":{
 		"format": " {status}",
-		"on-click":"blueman-manager",
+		"on-click":"/run/current-system/sw/bin/blueman-manager",
 	},
 
     "pulseaudio": {
@@ -97,7 +97,7 @@
             "car": "󰄋",
             "default": ["󰕿", "󰖀", "󰕾"]
         },
-        "on-click": "pavucontrol",
+        "on-click": "/run/current-system/sw/bin/pavucontrol",
         "on-click-right": "pactl set-sink-mute @DEFAULT_SINK@ toggle",
         "on-scroll-up": "pactl set-sink-volume @DEFAULT_SINK@ +2%",
         "on-scroll-down": "pactl set-sink-volume @DEFAULT_SINK@ -2%"
@@ -114,7 +114,7 @@
         "interval": 30,
         "format": "󰋊 {percentage_used}%",
         "path": "/",
-        "on-click": "kitty -e gdu /"
+        "on-click": "/run/current-system/sw/bin/baobab "
     },
 
     "tray": {
