@@ -29,8 +29,12 @@
     kitty
     curl
     fzf
-    brave
     vesktop
+    (brave.override {
+      commandLineArgs = [
+        "--enable-features=TouchpadOverscrollHistoryNavigation --ozone-platform=wayland %U"
+      ];
+    })
   ];
 
   fonts.packages = with pkgs; [
