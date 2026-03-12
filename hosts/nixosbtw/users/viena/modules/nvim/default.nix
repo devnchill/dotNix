@@ -42,7 +42,7 @@
       #    pyright
       #    rust-analyzer
       #
-      #    FORMATTERS
+      # FORMATTERS
       #    vimPlugins.vim-clang-format
       #    stylua
       #    prettierd
