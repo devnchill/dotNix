@@ -1,7 +1,7 @@
-local ai = require("mini.ai")  
+local ai = require("mini.ai")
 
 ai.setup({
-	n_lines = 500,  
+	n_lines = 500,
 
 	custom_textobjects = {
 		c = ai.gen_spec.treesitter({ a = "@class.outer", i = "@class.inner" }),

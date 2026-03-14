@@ -13,10 +13,6 @@ vim.api.nvim_create_autocmd("FileType", {
 
 vim.api.nvim_create_autocmd("TextYankPost", {
 	callback = function()
-		vim.highlight.on_yank({
-			higroup = "DiffAdd",
-			timeout = 250,
-			on_visual = true,
-		})
+		vim.highlight.on_yank({ higroup = "IncSearch", on_visual = true })
 	end,
 })
