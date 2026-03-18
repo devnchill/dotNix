@@ -8,6 +8,7 @@
     vimdiffAlias = true;
     plugins = with pkgs.vimPlugins; [
       nvim-treesitter.withAllGrammars
+      nvim-treesitter-textobjects
       gruvbox-material
       snacks-nvim
       mini-ai
