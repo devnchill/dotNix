@@ -337,3 +337,36 @@ end, { desc = "which_key_ignore" })
 
 -- Grugfar
 map("n", "<leader>sr", "<cmd>GrugFar<CR>", { desc = "Search and replace via GrugFar" })
+
+-- Debugger
+map("n", "<leader>dbb", function()
+	require("dap").toggle_breakpoint()
+end, { desc = "Toggle Breakpoints" })
+
+map("n", "<leader>dbc", function()
+	require("dap").clear_breakpoints()
+end, { desc = "Clear all breakpoints" })
+
+map("n", "<leader>dc", function()
+	require("dap").continue()
+end, { desc = "Continue Debugger" })
+
+map("n", "<leader>di", function()
+	require("dap").step_into()
+end, { desc = "Step Into" })
+
+map("n", "<leader>do", function()
+	require("dap").step_over()
+end, { desc = "Step Over" })
+
+map("n", "<leader>dO", function()
+	require("dap").step_out()
+end, { desc = "Step Out" })
+
+map("n", "<leader>dn", function()
+	vim.cmd("DapNew")
+end, { desc = "New Debugger Session" })
+
+map("n", "<leader>dt", function()
+	vim.cmd("DapNew")
+end, { desc = "Terminate debugging session" })
