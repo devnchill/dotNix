@@ -23,35 +23,39 @@
       cord-nvim
       bufferline-nvim
       trouble-nvim
+      nvim-dap
+      nvim-dap-ui
     ];
 
     extraPackages = with pkgs; [
-      # Commented them . using devshells to install them so as to not pollute user
       # LSP
-      #    nil
-      #    lua-language-server
-      #    docker-language-server
-      #    yaml-language-server
-      #    gopls
-      #    haskell-language-server
-      #    jdt-language-server
-      #    vscode-json-languageserver
-      #    vscode-css-languageserver
-      #	   tailwindcss-language-server
-      #    ruff
-      #    typescript-language-server
-      #    pyright
-      #    rust-analyzer
-      #
+      nil
+      lua-language-server
+      docker-language-server
+      yaml-language-server
+      gopls
+      haskell-language-server
+      jdt-language-server
+      vscode-json-languageserver
+      vscode-css-languageserver
+      tailwindcss-language-server
+      ruff
+      typescript-language-server
+      pyright
+      rust-analyzer
+
       # FORMATTERS
-      #    vimPlugins.vim-clang-format
-      #    stylua
-      #    prettierd
-      #    prettier
-      #    nixfmt
-      #    ormolu
-      #    rustfmt
-      #    google-java-format
+      vimPlugins.vim-clang-format
+      stylua
+      prettierd
+      prettier
+      nixfmt
+      ormolu
+      rustfmt
+      google-java-format
+
+      # Debuggers
+      lldb
     ];
 
   };

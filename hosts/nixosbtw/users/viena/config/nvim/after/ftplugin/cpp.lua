@@ -4,7 +4,7 @@ vim.keymap.set("n", "<F5>", function()
 	local file = vim.fn.expand("%:p")
 	local output = "/tmp/dsa_binaries/" .. vim.fn.expand("%:t:r")
 
-	vim.opt_local.makeprg = "g++ -std=c++17 -Wall -Wextra -o " .. output .. " " .. file
+	vim.opt_local.makeprg = "g++ -g -std=c++17 -Wall -Wextra -o " .. output .. " " .. file
 
 	vim.cmd("compiler gcc")
 	vim.cmd("silent make | redraw!")
