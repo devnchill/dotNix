@@ -6,6 +6,7 @@
     baobab
     ncdu
     git-crypt
+    git-lfs
     bruno
     wireguard-tools
     protonvpn-gui
@@ -30,6 +31,7 @@
     curl
     fzf
     vesktop
+    zathura
     (brave.override {
       commandLineArgs = [
         "--enable-features=TouchpadOverscrollHistoryNavigation --ozone-platform=wayland %U"
