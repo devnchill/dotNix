@@ -39,7 +39,14 @@
     })
   ];
 
-  fonts.packages = with pkgs; [
-    nerd-fonts.jetbrains-mono
-  ];
+  fonts = {
+    packages = with pkgs; [
+      nerd-fonts.iosevka
+    ];
+    fontconfig = {
+      defaultFonts = {
+        monospace = [ "Iosevka Nerd Font" ];
+      };
+    };
+  };
 }

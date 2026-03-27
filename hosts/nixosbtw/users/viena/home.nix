@@ -7,6 +7,7 @@
     ./modules/cli
     ./modules/git
     ./modules/nvim
+    ./modules/scripts
     ./modules/programming
   ];
 
@@ -20,6 +21,5 @@
   home.file.".config/nvim".source = ./config/nvim;
   home.file.".config/fastfetch".source = ./config/fastfetch;
   home.file.".tmux.conf".source = ./config/tmux/.tmux.conf;
-  home.file.".local/bin".source = ./bin;
 
 }

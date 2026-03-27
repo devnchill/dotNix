@@ -8,3 +8,5 @@ vim.opt.cmdheight = 0
 vim.opt.cursorline = true
 vim.opt.cursorlineopt = "both"
 vim.opt.splitright = true
+vim.opt.termguicolors = true
+vim.opt.background = "dark"

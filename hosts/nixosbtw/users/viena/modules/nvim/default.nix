@@ -9,7 +9,7 @@
     plugins = with pkgs.vimPlugins; [
       nvim-treesitter.withAllGrammars
       nvim-treesitter-textobjects
-      gruvbox-material
+      gruvbox-material-nvim
       snacks-nvim
       mini-ai
       mini-icons

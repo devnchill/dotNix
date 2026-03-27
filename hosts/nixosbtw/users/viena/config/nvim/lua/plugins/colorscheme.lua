@@ -1,12 +1,26 @@
-vim.g.gruvbox_material_background = "hard"
-vim.g.gruvbox_material_foreground = "material"
-vim.opt.termguicolors = true
-vim.opt.background = "dark"
+local colors = require("gruvbox-material.colors").get(vim.o.background, "hard")
+
+require("gruvbox-material").setup({
+	italics = true,
+	contrast = "hard",
+	comments = {
+		italics = true,
+	},
+	customize = function(group, opts)
+		if group == "CursorLineNr" then
+			opts.fg = colors.orange
+		end
+
+		if group == "NormalFloat" or group == "FloatBorder" then
+			opts.bg = "#1d2021"
+		end
+
+		if group == "TermCursor" then
+			opts.fg = "#fabd2f"
+		end
+
+		return opts
+	end,
+})
 
 vim.cmd.colorscheme("gruvbox-material")
-
--- override highlight groups
-vim.api.nvim_set_hl(0, "NormalFloat", { bg = "#1d2021" })
-vim.api.nvim_set_hl(0, "FloatBorder", { bg = "#1d2021" })
-vim.api.nvim_set_hl(0, "TermCursor", { fg = "#fabd2f" })
-vim.api.nvim_set_hl(0, "CursorLineNr", { fg = "#fabd2f" })
