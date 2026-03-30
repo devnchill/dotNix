@@ -49,7 +49,7 @@ window-rule{
 input {
     keyboard {
         xkb {
-            // layout "us,ru"
+            layout "us,ru,in"
         }
         numlock
     }
