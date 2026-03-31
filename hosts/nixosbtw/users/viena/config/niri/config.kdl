@@ -1,8 +1,8 @@
 prefer-no-csd
 
 spawn-at-startup "swaync"
-spawn-at-startup "swww-daemon"
-spawn-at-startup "swww img ../../../../../../asset/wallpapers/black_white_girl_with_sword.jpg"
+spawn-at-startup "awww-daemon"
+spawn-at-startup "awww img ../../../../../../asset/wallpapers/black_white_girl_with_sword.jpg"
 
 workspace "study"
 workspace "coding"

@@ -34,7 +34,7 @@
       docker-language-server
       yaml-language-server
       gopls
-      haskell-language-server
+      # haskell-language-server
       jdt-language-server
       vscode-json-languageserver
       vscode-css-languageserver

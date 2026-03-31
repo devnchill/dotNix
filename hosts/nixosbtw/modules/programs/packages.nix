@@ -9,8 +9,7 @@
     git-lfs
     bruno
     wireguard-tools
-    protonvpn-gui
-    proton-vpn-cli
+    proton-vpn
     mpv
     ripgrep
     fd
@@ -23,7 +22,7 @@
     pavucontrol
     fastfetch
     rofi
-    swww
+    awww
     file
     wget
     btop
