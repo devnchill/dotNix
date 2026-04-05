@@ -2,13 +2,13 @@
 
 {
   environment.systemPackages = with pkgs; [
+    gh
     sddm-astronaut
     baobab
     ncdu
     git-crypt
     git-lfs
     bruno
-    wireguard-tools
     proton-vpn
     mpv
     ripgrep
@@ -18,7 +18,6 @@
     brightnessctl
     swaynotificationcenter
     bibata-cursors
-    whitesur-icon-theme
     pavucontrol
     fastfetch
     rofi
