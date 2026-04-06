@@ -1,0 +1,29 @@
+name: Updater
+on:
+  schedule:
+    - cron: "0 0 * * *"
+      timezone: "Asia/Kolkata"
+  workflow_dispatch: {}
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout dotNix repo
+        uses: actions/checkout@v6
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Install Nix
+        uses: cachix/install-nix-action@v31
+        with:
+          github_access_token: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Update flake file
+        run: nix flake update
+
+      - name: Commit and push updated flake.lock
+        uses: devops-infra/action-commit-push@v1.1.0
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          commit_message: "chore: automatic flake.lock update"
