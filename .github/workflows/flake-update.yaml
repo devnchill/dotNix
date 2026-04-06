@@ -29,8 +29,8 @@ jobs:
           git config user.name "actions-update[bot]"
           git config user.email "41898282+actions[bot]@users.noreply.github.com"
 
-      - name: Commit and push updated flake.lock
-        uses: devops-infra/action-commit-push@v1.1.0
-        with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          commit_message: "chore: automatic flake.lock update"
+      - name: Commit changes
+        run: |
+          git add flake.lock 
+          git diff --cached --quiet || git commit -m "chore: update flake.lock"
+          git push
