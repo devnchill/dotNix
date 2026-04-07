@@ -1,4 +1,5 @@
 name: Updater
+
 on:
   schedule:
     - cron: "0 0 * * *"
@@ -6,64 +7,102 @@ on:
   workflow_dispatch: {}
 
 jobs:
-  update:
-    permissions:
-      pull-requests: write
-      contents: write
+  update_flake:
+    name: Update flake.lock
     runs-on: ubuntu-latest
+
+    outputs:
+      changed: ${{ steps.check.outputs.changed }}
+
     steps:
-      - name: Checkout dotNix repo
+      - name: Checkout repository
+        uses: actions/checkout@v6
+
+      - name: Install Nix
+        uses: cachix/install-nix-action@v31
+
+      - name: Update flake.lock
+        run: nix flake update
+
+      - name: Detect changes
+        id: check
+        run: |
+          if git diff --quiet; then
+            echo "changed=false" >> $GITHUB_OUTPUT
+          else
+            echo "changed=true" >> $GITHUB_OUTPUT
+          fi
+
+      - name: Upload flake.lock
+        if: steps.check.outputs.changed == 'true'
+        uses: actions/upload-artifact@v4
+        with:
+          name: flake_lock
+          path: flake.lock
+
+  build:
+    name: Validate flake (check + build)
+    needs: update_flake
+    if: needs.update_flake.outputs.changed == 'true'
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v6
+
+      - name: Download flake.lock
+        uses: actions/download-artifact@v4
+        with:
+          name: flake_lock
+
+      - name: Install Nix
+        uses: cachix/install-nix-action@v31
+
+      - name: Run flake check
+        run: nix flake check --keep-going
+
+      - name: Build NixOS system
+        run: nix build .#nixosConfigurations.nixosbtw.config.system.build.toplevel --no-link
+
+  create_pr:
+    name: Create and merge PR
+    needs: build
+    runs-on: ubuntu-latest
+
+    permissions:
+      contents: write
+      pull-requests: write
+
+    steps:
+      - name: Checkout repository
         uses: actions/checkout@v6
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
 
-      - name: configure git
+      - name: Download flake.lock
+        uses: actions/download-artifact@v4
+        with:
+          name: flake_lock
+
+      - name: Configure Git
         run: |
           git config user.name "actions-update[bot]"
           git config user.email "41898282+actions[bot]@users.noreply.github.com"
 
-      - name: Install Nix
-        uses: cachix/install-nix-action@v31
-        with:
-          github_access_token: ${{ secrets.GITHUB_TOKEN }}
-
-      - name: Update flake file
-        run: nix flake update
-
-      - name: Check if flake.lock changed
-        id: checked
-        run: |
-          if git diff --quiet;then 
-            echo "changed=false" >> $GITHUB_OUTPUT 
-          else 
-            echo "changed=true" >> $GITHUB_OUTPUT
-          fi
-
-      - name: Check flake
-        if: steps.checked.outputs.changed == 'true'
-        run: nix flake check --keep-going
-
-      - name: Build flake
-        if: steps.checked.outputs.changed == 'true'
-        run: nix build .#nixosConfigurations.nixosbtw.config.system.build.toplevel --no-link
-
-      - name: Commit changes
+      - name: Create branch and commit
         id: commit
-        if: steps.checked.outputs.changed == 'true'
         run: |
           BRANCH="flake-update-${{ github.run_id }}"
           git switch -c "$BRANCH"
-          git add flake.lock 
+          git add flake.lock
           git commit -m "chore: automatic flake update"
           echo "branch=$BRANCH" >> $GITHUB_OUTPUT
 
       - name: Push branch
-        if: steps.checked.outputs.changed == 'true'
         run: |
           git push -u origin ${{ steps.commit.outputs.branch }}
 
-      - name: Create PR
-        if: steps.checked.outputs.changed == 'true'
+      - name: Create PR if not exists
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
@@ -75,7 +114,6 @@ jobs:
             --head ${{ steps.commit.outputs.branch }}
 
       - name: Enable auto-merge
-        if: steps.checked.outputs.changed == 'true' && success()
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
