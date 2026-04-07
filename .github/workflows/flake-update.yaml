@@ -8,6 +8,7 @@ on:
 jobs:
   update:
     permissions:
+      pull-requests: write
       contents: write
     runs-on: ubuntu-latest
     steps:
@@ -15,6 +16,11 @@ jobs:
         uses: actions/checkout@v6
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: configure git
+        run: |
+          git config user.name "actions-update[bot]"
+          git config user.email "41898282+actions[bot]@users.noreply.github.com"
 
       - name: Install Nix
         uses: cachix/install-nix-action@v31
@@ -24,13 +30,57 @@ jobs:
       - name: Update flake file
         run: nix flake update
 
-      - name: configure git
+      - name: Check if flake.lock changed
+        id: checked
         run: |
-          git config user.name "actions-update[bot]"
-          git config user.email "41898282+actions[bot]@users.noreply.github.com"
+          if git diff --quiet;then 
+            echo "changed=false" >> $GITHUB_OUTPUT 
+          else 
+            echo "changed=true" >> $GITHUB_OUTPUT
+          fi
+
+      - name: Check flake
+        if: steps.checked.outputs.changed == 'true'
+        run: nix flake check --keep-going
+
+      - name: Build flake
+        if: steps.checked.outputs.changed == 'true'
+        run: nix build .#nixosConfigurations.nixosbtw.config.system.build.toplevel --no-link
 
       - name: Commit changes
+        id: commit
+        if: steps.checked.outputs.changed == 'true'
         run: |
+          BRANCH="flake-update-${{ github.run_id }}"
+          git switch -c "$BRANCH"
           git add flake.lock 
-          git diff --cached --quiet || git commit -m "chore: update flake.lock"
-          git push
+          git commit -m "chore: automatic flake update"
+          echo "branch=$BRANCH" >> $GITHUB_OUTPUT
+
+      - name: Push branch
+        if: steps.checked.outputs.changed == 'true'
+        run: |
+          git push -u origin ${{ steps.commit.outputs.branch }}
+
+      - name: Create PR
+        if: steps.checked.outputs.changed == 'true'
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          gh pr view ${{ steps.commit.outputs.branch }} \
+          || gh pr create \
+            --title "flake.lock: update" \
+            --body "Automated flake update" \
+            --base main \
+            --head ${{ steps.commit.outputs.branch }}
+
+      - name: Enable auto-merge
+        if: steps.checked.outputs.changed == 'true' && success()
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          gh pr merge \
+            --auto \
+            --merge \
+            --delete-branch \
+            ${{ steps.commit.outputs.branch }}
