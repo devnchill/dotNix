@@ -12,6 +12,7 @@
     ./modules/network
     ./modules/services
     ./modules/users
+    ./modules/cachix
     ./modules/desktop
     ./modules/programs
     ./modules/virtualization
