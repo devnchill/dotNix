@@ -2,6 +2,9 @@
 
 {
   environment.systemPackages = with pkgs; [
+    cheese
+    lsof
+    tor-browser
     gh
     sddm-astronaut
     baobab
