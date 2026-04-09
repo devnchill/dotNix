@@ -1,7 +1,5 @@
-{config,pkgs,...}:
-
-{
-  networking.hostName = "nixosbtw"; 
+_: {
+  networking.hostName = "nixosbtw";
 
   networking.networkmanager.enable = true;
 }

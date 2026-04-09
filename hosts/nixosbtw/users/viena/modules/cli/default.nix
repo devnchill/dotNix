@@ -1,19 +1,19 @@
-{ config, pkgs, ... }:
-
+{ pkgs, ... }:
 {
+  programs = {
+    fzf = {
+      enable = true;
+    };
 
-  programs.fzf = {
-    enable = true;
-  };
+    zoxide = {
+      enable = true;
+    };
 
-  programs.zoxide = {
-    enable = true;
-  };
-
-  programs.direnv = {
-    enable = true;
-    nix-direnv.enable = true;
-    silent = true;
+    direnv = {
+      enable = true;
+      nix-direnv.enable = true;
+      silent = true;
+    };
   };
 
   home.packages = with pkgs; [

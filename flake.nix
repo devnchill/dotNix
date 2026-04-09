@@ -8,35 +8,56 @@
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
 
     spicetify-nix.url = "github:Gerg-L/spicetify-nix";
+
+    pre-commit-hooks.url = "github:cachix/pre-commit-hooks.nix";
   };
 
   outputs =
     inputs@{
-      self,
       nixpkgs,
       home-manager,
+      pre-commit-hooks,
       ...
     }:
     let
-      hmConfig = {
-        home-manager.useGlobalPkgs = true;
-        home-manager.useUserPackages = true;
-        home-manager.backupFileExtension = "backup";
-        home-manager.users.viena = ./hosts/nixosbtw/users/viena/home.nix;
-        home-manager.extraSpecialArgs = { inherit inputs; };
-      };
       system = "x86_64-linux";
       pkgs = nixpkgs.legacyPackages.${system};
+
+      hmConfig = {
+        home-manager = {
+          useGlobalPkgs = true;
+          useUserPackages = true;
+          backupFileExtension = "backup";
+          users.viena = ./hosts/nixosbtw/users/viena/home.nix;
+          extraSpecialArgs = { inherit inputs; };
+        };
+      };
+
+      preCommitCheck = pre-commit-hooks.lib.${system}.run {
+        src = ./.;
+        hooks = {
+          nixfmt.enable = true;
+          statix.enable = true;
+          deadnix.enable = true;
+        };
+      };
     in
     {
       nixosConfigurations.nixosbtw = nixpkgs.lib.nixosSystem {
-        system = system;
+        inherit system;
         modules = [
           ./hosts/nixosbtw/configuration.nix
           home-manager.nixosModules.home-manager
           hmConfig
         ];
       };
-      devShells.${system}.default = import ./devshell.nix { inherit pkgs; };
+
+      checks.${system}.pre-commit-check = preCommitCheck;
+      formatter.${system} = nixpkgs.legacyPackages.${system}.alejandra;
+
+      devShells.${system}.default = import ./devshell.nix {
+        inherit pkgs;
+        inherit (preCommitCheck) shellHook;
+      };
     };
 }

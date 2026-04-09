@@ -1,12 +1,10 @@
-{config,pkgs,...}:
-
-{
-  hardware.bluetooth={
-    enable=true;
-    settings={
-     General = {
-      Experimental = true;
+_: {
+  hardware.bluetooth = {
+    enable = true;
+    settings = {
+      General = {
+        Experimental = true;
       };
-     };
+    };
   };
 }

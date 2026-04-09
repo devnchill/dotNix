@@ -1,5 +1,4 @@
-{ pkgs, inputs, ... }:
-
+{ ... }:
 {
   imports = [
     ./modules/spicetify
@@ -11,15 +10,18 @@
     ./modules/programming
   ];
 
-  home.username = "viena";
-  home.homeDirectory = "/home/viena";
-  home.stateVersion = "25.11";
+  home = {
+    username = "viena";
+    homeDirectory = "/home/viena";
+    stateVersion = "25.11";
 
-  home.file.".config/kitty".source = ./config/kitty;
-  home.file.".config/niri".source = ./config/niri;
-  home.file.".config/waybar".source = ./config/waybar;
-  home.file.".config/nvim".source = ./config/nvim;
-  home.file.".config/fastfetch".source = ./config/fastfetch;
-  home.file.".tmux.conf".source = ./config/tmux/.tmux.conf;
-
+    file = {
+      ".config/kitty".source = ./config/kitty;
+      ".config/niri".source = ./config/niri;
+      ".config/waybar".source = ./config/waybar;
+      ".config/nvim".source = ./config/nvim;
+      ".config/fastfetch".source = ./config/fastfetch;
+      ".tmux.conf".source = ./config/tmux/.tmux.conf;
+    };
+  };
 }

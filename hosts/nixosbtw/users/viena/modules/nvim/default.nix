@@ -1,11 +1,12 @@
-{ config, pkgs, ... }:
-
+{ pkgs, ... }:
 {
   programs.neovim = {
     enable = true;
     viAlias = true;
     vimAlias = true;
     vimdiffAlias = true;
+    withRuby = false;
+    withPython3 = false;
     plugins = with pkgs.vimPlugins; [
       nvim-treesitter.withAllGrammars
       nvim-treesitter-textobjects
@@ -57,6 +58,5 @@
       # Debuggers
       lldb
     ];
-
   };
 }

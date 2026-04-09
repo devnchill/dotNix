@@ -1,8 +1,7 @@
-{config,pkgs,...}:
-
+{ ... }:
 {
-	imports  = [
-		./hardware-configuration.nix
-		./bluetooth.nix
-	];
+  imports = [
+    ./hardware-configuration.nix
+    ./bluetooth.nix
+  ];
 }

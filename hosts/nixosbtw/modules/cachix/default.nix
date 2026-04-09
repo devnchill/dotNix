@@ -1,5 +1,4 @@
-{ lib, config, ... }:
-
+_:
 let
   devnchillKey = "devnchill.cachix.org-1:TilbmG02gm6LclTLYflIWNxmOXKZLMf6E/Os9DxAjHc=";
 in

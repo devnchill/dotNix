@@ -1,21 +1,21 @@
-{ config, pkgs, ... }:
-
-{
+_: {
   imports = [
     ./packages.nix
   ];
-  programs.fish.enable = true;
-  programs.niri.enable = true;
-  programs.xwayland.enable = true;
-  programs.thunar.enable = true;
-  programs.waybar.enable = true;
-  programs.tmux.enable = true;
-  programs.obs-studio.enable = true;
-  programs.gnupg = {
-    agent.enable = true;
-  };
-  programs.neovim = {
-    enable = true;
-    defaultEditor = true;
+  programs = {
+    fish.enable = true;
+    niri.enable = true;
+    xwayland.enable = true;
+    thunar.enable = true;
+    waybar.enable = true;
+    tmux.enable = true;
+    obs-studio.enable = true;
+    gnupg = {
+      agent.enable = true;
+    };
+    neovim = {
+      enable = true;
+      defaultEditor = true;
+    };
   };
 }

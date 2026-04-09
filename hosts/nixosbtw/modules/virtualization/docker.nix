@@ -1,9 +1,7 @@
-{config,pkgs,...}:
+_: {
+  virtualisation.docker = {
+    enable = true;
+  };
 
-{
-	virtualisation.docker = {
-	  enable = true;
-	};
-	
-	users.users.viena.extraGroups = [ "docker" ];
+  users.users.viena.extraGroups = [ "docker" ];
 }

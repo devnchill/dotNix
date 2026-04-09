@@ -1,5 +1,4 @@
 { pkgs, ... }:
-
 let
   myScripts = pkgs.stdenv.mkDerivation {
     pname = "viena-scripts";
@@ -8,14 +7,14 @@ let
     src = ./bin;
 
     installPhase = ''
-            mkdir -p $out/bin
+         mkdir -p $out/bin
 
-            for f in *.sh; do
-              name=$(basename "$f" .sh)
-              install -Dm755 "$f" "$out/bin/$name"
-            done
+         for f in *.sh; do
+           name=$(basename "$f" .sh)
+           install -Dm755 "$f" "$out/bin/$name"
+         done
 
-      	  patchShebangs $out/bin
+      patchShebangs $out/bin
     '';
   };
 in
