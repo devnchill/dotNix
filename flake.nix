@@ -53,7 +53,7 @@
       };
 
       checks.${system}.pre-commit-check = preCommitCheck;
-      formatter.${system} = nixpkgs.legacyPackages.${system}.alejandra;
+      formatter.${system} = nixpkgs.legacyPackages.${system}.nixfmt-tree;
 
       devShells.${system}.default = import ./devshell.nix {
         inherit pkgs;
