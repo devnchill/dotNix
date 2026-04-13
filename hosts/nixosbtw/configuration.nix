@@ -9,6 +9,7 @@ _: {
     ./modules/desktop
     ./modules/programs
     ./modules/virtualization
+    ./modules/fonts
   ];
 
   time.timeZone = "Asia/Kolkata";

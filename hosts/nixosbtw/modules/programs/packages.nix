@@ -1,6 +1,7 @@
 { pkgs, ... }:
 {
   environment.systemPackages = with pkgs; [
+    unzip
     cheese
     lsof
     tor-browser
@@ -38,15 +39,4 @@
       ];
     })
   ];
-
-  fonts = {
-    packages = with pkgs; [
-      nerd-fonts.iosevka
-    ];
-    fontconfig = {
-      defaultFonts = {
-        monospace = [ "Iosevka Nerd Font" ];
-      };
-    };
-  };
 }
