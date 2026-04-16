@@ -1,6 +1,7 @@
 prefer-no-csd
 
 spawn-at-startup "swaync"
+spawn-sh-at-startup "wl-paste --watch cliphist store"
 spawn-at-startup "awww-daemon"
 spawn-at-startup "awww img ../../../../../../asset/wallpapers/black_white_girl_with_sword.jpg"
 
@@ -140,7 +141,10 @@ cursor {
 }
 
 binds {
-    Mod+Shift+Slash { show-hotkey-overlay; }
+	Mod+Shift+Slash { show-hotkey-overlay; }
+
+	// Manage Clipboard
+	Mod+Alt+V {spawn-sh ".config/niri/scripts/clipManager.sh";}
 
     Mod+Return hotkey-overlay-title="Open a Terminal: kitty" { spawn "kitty"; }
     Alt+Shift+D {spawn "vesktop";}
