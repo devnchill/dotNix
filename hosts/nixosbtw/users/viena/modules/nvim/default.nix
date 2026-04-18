@@ -8,6 +8,7 @@
     withRuby = false;
     withPython3 = false;
     plugins = with pkgs.vimPlugins; [
+      lz-n
       nvim-treesitter.withAllGrammars
       nvim-treesitter-textobjects
       gruvbox-material-nvim
@@ -54,6 +55,10 @@
       ormolu
       rustfmt
       google-java-format
+
+      # Linters
+      statix
+      deadnix
 
       # Debuggers
       lldb
