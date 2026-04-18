@@ -2,7 +2,7 @@ local lz = require("lz.n")
 
 lz.load({
 	{
-		"mini-pairs",
+		"mini.pairs",
 		event = "InsertEnter",
 		after = function()
 			require("mini.pairs").setup({})

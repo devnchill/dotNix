@@ -2,7 +2,7 @@ local lz = require("lz.n")
 
 lz.load({
 	{
-		"bufferline",
+		"bufferline.nvim",
 		event = "BufEnter",
 		after = function()
 			require("bufferline").setup({})

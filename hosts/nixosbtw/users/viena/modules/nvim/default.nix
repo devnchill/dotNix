@@ -1,4 +1,10 @@
 { pkgs, ... }:
+let
+  load = name: {
+    plugin = pkgs.vimPlugins.${name};
+    optional = true;
+  };
+in
 {
   programs.neovim = {
     enable = true;
@@ -14,19 +20,19 @@
       gruvbox-material-nvim
       snacks-nvim
       mini-ai
-      mini-icons
-      mini-pairs
       which-key-nvim
-      blink-cmp
-      tmux-nvim
-      conform-nvim
-      grug-far-nvim
-      gitsigns-nvim
       cord-nvim
-      bufferline-nvim
-      trouble-nvim
       nvim-dap
       nvim-dap-ui
+      (load "grug-far-nvim")
+      (load "blink-cmp")
+      (load "mini-icons")
+      (load "mini-pairs")
+      (load "tmux-nvim")
+      (load "conform-nvim")
+      (load "gitsigns-nvim")
+      (load "bufferline-nvim")
+      (load "trouble-nvim")
     ];
 
     extraPackages = with pkgs; [

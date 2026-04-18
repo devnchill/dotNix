@@ -2,7 +2,7 @@ local lz = require("lz.n")
 
 lz.load({
 	{
-		"blink-cmp",
+		"blink.cmp",
 		event = "InsertEnter",
 		after = function()
 			require("blink-cmp").setup({
