@@ -3,7 +3,7 @@ prefer-no-csd
 spawn-at-startup "swaync"
 spawn-sh-at-startup "wl-paste --watch cliphist store"
 spawn-at-startup "awww-daemon"
-spawn-at-startup "awww img ../../../../../../asset/wallpapers/black_white_girl_with_sword.jpg"
+spawn-sh-at-startup "awww img ~/dev/dotNix/asset/wallpapers/black_white_girl_with_sword.jpg"
 
 workspace "study"
 workspace "coding"
