@@ -15,24 +15,28 @@ require("lz.n").load({
 				function()
 					require("dap").toggle_breakpoint()
 				end,
+				desc = "Toggle breakpoint",
 			},
 			{
 				"<leader>dbc",
 				function()
 					require("dap").clear_breakpoints()
 				end,
+				desc = "Clear breakpoint",
 			},
 			{
 				"<leader>dc",
 				function()
 					require("dap").continue()
 				end,
+				desc = "Dap continue",
 			},
 			{
 				"<leader>dt",
 				function()
 					require("dap").terminate()
 				end,
+				desc = "Dap Terminate",
 			},
 		},
 
