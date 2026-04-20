@@ -18,12 +18,12 @@ in
       nvim-treesitter.withAllGrammars
       nvim-treesitter-textobjects
       gruvbox-material-nvim
-      snacks-nvim
-      mini-ai
       which-key-nvim
       cord-nvim
-      nvim-dap
-      nvim-dap-ui
+      (load "nvim-dap")
+      (load "nvim-dap-ui")
+      (load "snacks-nvim")
+      (load "mini-ai")
       (load "grug-far-nvim")
       (load "blink-cmp")
       (load "mini-icons")
