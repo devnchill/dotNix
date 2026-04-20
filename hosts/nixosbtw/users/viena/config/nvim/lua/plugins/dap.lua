@@ -1,6 +1,13 @@
 require("lz.n").load({
 	{
+		"nvim-dap-ui",
+	},
+	{
 		"nvim-dap",
+
+		before = function()
+			require("lz.n").trigger_load("nvim-dap-ui")
+		end,
 
 		keys = {
 			{
@@ -21,34 +28,13 @@ require("lz.n").load({
 					require("dap").continue()
 				end,
 			},
+			{
+				"<leader>dt",
+				function()
+					require("dap").terminate()
+				end,
+			},
 		},
-
-		after = function()
-			local dap = require("dap")
-
-			dap.adapters.lldb = {
-				type = "executable",
-				name = "lldb",
-				command = "lldb-dap",
-			}
-
-			dap.configurations.cpp = {
-				{
-					name = "Launch",
-					type = "lldb",
-					request = "launch",
-					program = function()
-						return vim.fn.input("Path: ", vim.fn.getcwd() .. "/", "file")
-					end,
-				},
-			}
-
-			require("lz.n").trigger_load("nvim-dap-ui")
-		end,
-	},
-
-	{
-		"nvim-dap-ui",
 
 		after = function()
 			local dap = require("dap")
@@ -67,6 +53,23 @@ require("lz.n").load({
 			dap.listeners.before.event_exited["dapui"] = function()
 				dapui.close()
 			end
+
+			dap.adapters.lldb = {
+				type = "executable",
+				name = "lldb",
+				command = "lldb-dap",
+			}
+
+			dap.configurations.cpp = {
+				{
+					name = "Launch",
+					type = "lldb",
+					request = "launch",
+					program = function()
+						return vim.fn.input("Path: ", vim.fn.getcwd() .. "/", "file")
+					end,
+				},
+			}
 		end,
 	},
 })
