@@ -1,4 +1,10 @@
 { pkgs, ... }:
+let
+  load = name: {
+    plugin = pkgs.vimPlugins.${name};
+    optional = true;
+  };
+in
 {
   programs.neovim = {
     enable = true;
@@ -8,24 +14,25 @@
     withRuby = false;
     withPython3 = false;
     plugins = with pkgs.vimPlugins; [
+      lz-n
       nvim-treesitter.withAllGrammars
       nvim-treesitter-textobjects
       gruvbox-material-nvim
-      snacks-nvim
-      mini-ai
-      mini-icons
-      mini-pairs
       which-key-nvim
-      blink-cmp
-      tmux-nvim
-      conform-nvim
-      grug-far-nvim
-      gitsigns-nvim
       cord-nvim
-      bufferline-nvim
-      trouble-nvim
-      nvim-dap
-      nvim-dap-ui
+      (load "nvim-dap")
+      (load "nvim-dap-ui")
+      (load "snacks-nvim")
+      (load "mini-ai")
+      (load "grug-far-nvim")
+      (load "blink-cmp")
+      (load "mini-icons")
+      (load "mini-pairs")
+      (load "tmux-nvim")
+      (load "conform-nvim")
+      (load "gitsigns-nvim")
+      (load "bufferline-nvim")
+      (load "trouble-nvim")
     ];
 
     extraPackages = with pkgs; [
@@ -54,6 +61,10 @@
       ormolu
       rustfmt
       google-java-format
+
+      # Linters
+      statix
+      deadnix
 
       # Debuggers
       lldb
