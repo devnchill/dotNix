@@ -216,13 +216,6 @@ lz.load({
 
 			-- search
 			{
-				'<leader>s"',
-				function()
-					require("snacks").picker.registers()
-				end,
-				desc = "Registers",
-			},
-			{
 				"<leader>s/",
 				function()
 					require("snacks").picker.search_history()
@@ -272,13 +265,6 @@ lz.load({
 				desc = "Highlights",
 			},
 			{
-				"<leader>si",
-				function()
-					require("snacks").picker.icons()
-				end,
-				desc = "Icons",
-			},
-			{
 				"<leader>sj",
 				function()
 					require("snacks").picker.jumps()
@@ -293,13 +279,6 @@ lz.load({
 				desc = "Keymaps",
 			},
 			{
-				"<leader>sl",
-				function()
-					require("snacks").picker.loclist()
-				end,
-				desc = "Location List",
-			},
-			{
 				"<leader>sm",
 				function()
 					require("snacks").picker.marks()
@@ -312,13 +291,6 @@ lz.load({
 					require("snacks").picker.man()
 				end,
 				desc = "Man Pages",
-			},
-			{
-				"<leader>sp",
-				function()
-					require("snacks").picker.lazy()
-				end,
-				desc = "Plugin Search",
 			},
 			{
 				"<leader>sq",
@@ -425,7 +397,7 @@ lz.load({
 				desc = "Zen Mode",
 			},
 			{
-				"<leader>Z",
+				"<leader>wm",
 				function()
 					require("snacks").zen.zoom()
 				end,
@@ -507,14 +479,6 @@ lz.load({
 			-- terminal
 			{
 				"<C-/>",
-				function()
-					require("snacks").terminal()
-				end,
-				mode = { "n", "t" },
-				desc = "Terminal",
-			},
-			{
-				"<C-_>",
 				function()
 					require("snacks").terminal()
 				end,
