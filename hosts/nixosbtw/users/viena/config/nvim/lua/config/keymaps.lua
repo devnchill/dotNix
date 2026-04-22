@@ -66,3 +66,6 @@ map("n", "<leader><tab>[", "<cmd>tabprevious<cr>", { desc = "Previous Tab" })
 
 -- Undotree
 map("n", "<leader>ut", "<cmd>Undotree<cr>", { desc = "Open UndoTree" })
+
+-- Terminal
+map("t", "<C-q>", [[<C-\><C-n>]], { desc = "Escape in terminal window" })

@@ -478,7 +478,7 @@ lz.load({
 
 			-- terminal
 			{
-				"<C-/>",
+				"<C-_>",
 				function()
 					require("snacks").terminal()
 				end,
