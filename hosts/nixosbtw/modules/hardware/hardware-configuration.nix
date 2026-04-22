@@ -27,18 +27,22 @@
     extraModulePackages = [ ];
   };
 
-  fileSystems."/" = {
-    device = "/dev/mapper/cryptroot";
-    fsType = "ext4";
-  };
+  fileSystems = {
 
-  fileSystems."/boot" = {
-    device = "/dev/disk/by-uuid/12F0-CB19";
-    fsType = "vfat";
-    options = [
-      "fmask=0022"
-      "dmask=0022"
-    ];
+    "/boot" = {
+      device = "/dev/disk/by-uuid/12F0-CB19";
+      fsType = "vfat";
+      options = [
+        "fmask=0022"
+        "dmask=0022"
+      ];
+    };
+
+    "/" = {
+      device = "/dev/mapper/cryptroot";
+      fsType = "ext4";
+    };
+
   };
 
   swapDevices = [
