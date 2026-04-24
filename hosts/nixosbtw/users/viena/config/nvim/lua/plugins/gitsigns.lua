@@ -70,14 +70,14 @@ lz.load({
 				desc = "Reset Buffer",
 			},
 			{
-				"<leader>ghpi",
+				"<leader>ghp",
 				function()
 					require("gitsigns").preview_hunk_inline()
 				end,
 				desc = "Preview Hunk Inline",
 			},
 			{
-				"<leader>ghpb",
+				"<leader>ghP",
 				function()
 					require("gitsigns").preview_hunk()
 				end,

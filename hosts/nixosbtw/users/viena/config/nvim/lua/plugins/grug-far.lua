@@ -6,9 +6,20 @@ lz.load({
 		cmd = { "GrugFar", "GrugFarReplace" },
 		keys = {
 			{
-				"<leader>sr",
+				"<leader>srn",
 				"<cmd>GrugFar<CR>",
 				{ desc = "search and replace" },
+			},
+			{
+				"<leader>srw",
+				function()
+					require("grug-far").open({
+						prefills = {
+							search = vim.fn.expand("<cword>"),
+						},
+					})
+				end,
+				{ desc = "search and replace word under cursor" },
 			},
 		},
 		after = function()

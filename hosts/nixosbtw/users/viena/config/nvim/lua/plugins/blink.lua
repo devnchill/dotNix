@@ -17,6 +17,7 @@ lz.load({
 					menu = {
 						border = "rounded",
 					},
+					ghost_text = { enabled = true },
 				},
 			})
 		end,

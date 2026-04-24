@@ -1,6 +1,6 @@
 { pkgs, ... }:
 let
-  load = name: {
+  lazyLoad = name: {
     plugin = pkgs.vimPlugins.${name};
     optional = true;
   };
@@ -20,19 +20,20 @@ in
       gruvbox-material-nvim
       which-key-nvim
       cord-nvim
-      (load "nvim-dap")
-      (load "nvim-dap-ui")
-      (load "snacks-nvim")
-      (load "mini-ai")
-      (load "grug-far-nvim")
-      (load "blink-cmp")
-      (load "mini-icons")
-      (load "mini-pairs")
-      (load "tmux-nvim")
-      (load "conform-nvim")
-      (load "gitsigns-nvim")
-      (load "bufferline-nvim")
-      (load "trouble-nvim")
+      friendly-snippets
+      (lazyLoad "nvim-dap")
+      (lazyLoad "nvim-dap-ui")
+      (lazyLoad "snacks-nvim")
+      (lazyLoad "mini-ai")
+      (lazyLoad "grug-far-nvim")
+      (lazyLoad "blink-cmp")
+      (lazyLoad "mini-icons")
+      (lazyLoad "mini-pairs")
+      (lazyLoad "tmux-nvim")
+      (lazyLoad "conform-nvim")
+      (lazyLoad "gitsigns-nvim")
+      (lazyLoad "bufferline-nvim")
+      (lazyLoad "trouble-nvim")
     ];
 
     extraPackages = with pkgs; [
