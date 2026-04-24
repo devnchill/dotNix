@@ -70,11 +70,18 @@ lz.load({
 				desc = "Reset Buffer",
 			},
 			{
-				"<leader>ghp",
+				"<leader>ghpi",
 				function()
 					require("gitsigns").preview_hunk_inline()
 				end,
 				desc = "Preview Hunk Inline",
+			},
+			{
+				"<leader>ghpb",
+				function()
+					require("gitsigns").preview_hunk()
+				end,
+				desc = "Preview Hunk in popup",
 			},
 			{
 				"<leader>ghb",
@@ -112,10 +119,27 @@ lz.load({
 				mode = { "o", "x" },
 				desc = "Select Hunk",
 			},
+
+			-- quickfix list
+			{
+				"<leader>ghQ",
+				function()
+					require("gitsigns").setqflist("all")
+				end,
+				{ desc = "hunks-> quickfix all" },
+			},
+			{
+				"<leader>ghq",
+				function()
+					require("gitsigns").setqflist()
+				end,
+				{ desc = "hunks-> quickfix for current file" },
+			},
 		},
 
 		after = function()
 			require("gitsigns").setup({
+				current_line_blame = true,
 				signs = {
 					add = { text = "▎" },
 					change = { text = "▎" },
