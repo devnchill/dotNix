@@ -14,6 +14,10 @@
         src = pkgs.fishPlugins.grc;
       }
     ];
+
+    shellAliases = {
+      "lg" = "lazygit";
+    };
   };
 
   programs.starship = {
