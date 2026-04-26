@@ -19,8 +19,8 @@ in
       nvim-treesitter-textobjects
       gruvbox-material-nvim
       which-key-nvim
-      cord-nvim
       friendly-snippets
+      (lazyLoad "cord-nvim")
       (lazyLoad "nvim-dap")
       (lazyLoad "nvim-dap-ui")
       (lazyLoad "snacks-nvim")
