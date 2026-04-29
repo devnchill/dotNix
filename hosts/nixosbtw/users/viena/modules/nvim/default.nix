@@ -66,6 +66,7 @@ in
       # Linters
       statix
       deadnix
+      clippy
 
       # Debuggers
       lldb
