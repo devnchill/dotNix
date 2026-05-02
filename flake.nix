@@ -45,7 +45,6 @@
     in
     {
       nixosConfigurations.nixosbtw = nixpkgs.lib.nixosSystem {
-        inherit system;
         modules = [
           { nixpkgs.overlays = overlays; }
 
