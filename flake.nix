@@ -21,7 +21,8 @@
     }:
     let
       system = "x86_64-linux";
-      pkgs = nixpkgs.legacyPackages.${system};
+      overlays = [ (import ./overlay) ];
+      pkgs = import nixpkgs { inherit system overlays; };
 
       hmConfig = {
         home-manager = {
@@ -46,6 +47,8 @@
       nixosConfigurations.nixosbtw = nixpkgs.lib.nixosSystem {
         inherit system;
         modules = [
+          { nixpkgs.overlays = overlays; }
+
           ./hosts/nixosbtw/configuration.nix
           home-manager.nixosModules.home-manager
           hmConfig
