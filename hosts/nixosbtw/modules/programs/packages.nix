@@ -1,6 +1,7 @@
 { pkgs, ... }:
 {
   environment.systemPackages = with pkgs; [
+    qbittorrent
     opencode
     wl-clipboard
     cliphist
