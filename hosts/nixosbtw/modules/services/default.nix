@@ -23,11 +23,27 @@
       alsa.enable = true;
     };
 
-    # knot dns resolver
-    kresd.enable = true;
-
-    # disable built-in dns
-    resolved.enable = false;
+    resolved = {
+      enable = false;
+    };
+    dnscrypt-proxy2 = {
+      enable = true;
+      settings = {
+        ipv6_servers = true;
+        require_dnssec = true;
+        query_log.file = "/var/log/dnscrypt-proxy/query.log";
+        sources = {
+          public-resolvers = {
+            urls = [
+              "https://raw.githubusercontent.com/DNSCrypt/dnscrypt-resolvers/master/v3/public-resolvers.md"
+              "https://download.dnscrypt.info/resolvers-list/v3/public-resolvers.md"
+            ];
+            cache_file = "/var/cache/dnscrypt-proxy/public-resolvers.md";
+            minisign_key = "RWQf6LRCGA9i53mlYecO4IzT51TGPpvWucNSCh1CBM0QTaLn73Y7GFO3";
+          };
+        };
+      };
+    };
 
     postgresql = {
       enable = true;
@@ -40,13 +56,5 @@
         host    all       all   ::1/128    md5
       '';
     };
-  };
-
-  environment.etc."resolv.conf" = {
-    mode = "0644";
-    text = ''
-      nameserver ::1
-      nameserver 127.0.0.1
-    '';
   };
 }
