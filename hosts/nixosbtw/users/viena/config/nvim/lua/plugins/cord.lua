@@ -1,12 +1,19 @@
 local lz = require("lz.n")
 
+local function is_opensource(opts)
+	return opts.workspace_dir and opts.workspace_dir:find("os-contribution", 1, true) ~= nil
+end
+
 local function workspace(opts)
-	return ("in %s"):format(opts.workspace)
+	if is_opensource(opts) then
+		return "opensource-related workspace"
+	end
+	return opts.workspace
 end
 
 local function editing(opts)
 	local verb = opts.is_read_only and "Viewing" or "Editing"
-	return ("%s %s (%s)"):format(verb, opts.filename, opts.filetype)
+	return ("%s %s"):format(verb, opts.filename)
 end
 
 local function file_browser(opts)
