@@ -69,3 +69,7 @@ map("n", "<leader>ut", "<cmd>Undotree<cr>", { desc = "Open UndoTree" })
 
 -- Terminal
 map("t", "<C-q>", [[<C-\><C-n>]], { desc = "Escape in terminal window" })
+
+-- Scroll
+map({ "n" }, "<C-u>", "<C-u>zz", { desc = "Scroll up and center the cursor" })
+map({ "n" }, "<C-d>", "<C-d>zz", { desc = "Scroll down and center the cursor" })
