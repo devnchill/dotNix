@@ -1,28 +1,38 @@
 local lz = require("lz.n")
 
+local function is_always_hidden(name)
+	return name == ".git"
+end
+
 lz.load({
 	{
 		"oil.nvim",
 
 		keys = {
 			{
-				"<leader>e",
+				"<leader>o.",
 				function()
 					require("oil").open()
 				end,
-				desc = "Open Oil (parent dir)",
+				desc = "open current folder",
 			},
 			{
-				"<leader>E",
+				"<leader>o-",
 				function()
-					require("oil").open(vim.fn.getcwd())
+					require("oil").open_float()
 				end,
-				desc = "Open Oil (cwd)",
+				desc = "open current folder (floating)",
 			},
+			{ "-", "<cmd>Oil --float<cr>", desc = "open current folder (floating)" },
 		},
 
 		after = function()
-			require("oil").setup()
+			require("oil").setup({
+				view_options = {
+					show_hidden = true,
+					is_always_hidden = is_always_hidden,
+				},
+			})
 		end,
 	},
 })
