@@ -25,6 +25,7 @@ in
       (lazyLoad "nvim-dap-ui")
       (lazyLoad "snacks-nvim")
       (lazyLoad "mini-ai")
+      (lazyLoad "oil-nvim")
       (lazyLoad "mini-statusline")
       (lazyLoad "grug-far-nvim")
       (lazyLoad "blink-cmp")
