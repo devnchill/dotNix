@@ -43,21 +43,6 @@ lz.load({
 				desc = "Notification History",
 			},
 
-			{
-				"<leader>e",
-				function()
-					require("snacks").explorer()
-				end,
-				desc = "File Explorer",
-			},
-			{
-				"<leader>E",
-				function()
-					require("snacks").explorer.open({ cwd = vim.fn.getcwd() })
-				end,
-				desc = "File Explorer (cwd)",
-			},
-
 			-- find
 			{
 				"<leader>fb",
@@ -501,20 +486,10 @@ lz.load({
 		after = function()
 			require("snacks").setup({
 				bigfile = { enabled = true },
-				explorer = { enabled = true },
 				indent = { enabled = true },
 				input = { enabled = true },
 				notifier = { enabled = true, timeout = 3000 },
 				lazygit = { enabled = true, configure = true },
-				picker = {
-					sources = {
-						explorer = {
-							layout = {
-								layout = { position = "right" },
-							},
-						},
-					},
-				},
 				quickfile = { enabled = true },
 				scope = { enabled = true },
 				scroll = { enabled = true },
