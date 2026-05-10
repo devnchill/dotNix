@@ -3,6 +3,7 @@
   imports = [
     ./modules/spicetify
     ./modules/fish
+    ./modules/tmux
     ./modules/cli
     ./modules/git
     ./modules/nvim
@@ -21,7 +22,6 @@
       ".config/waybar".source = ./config/waybar;
       ".config/nvim".source = ./config/nvim;
       ".config/fastfetch".source = ./config/fastfetch;
-      ".tmux.conf".source = ./config/tmux/.tmux.conf;
     };
   };
 }
