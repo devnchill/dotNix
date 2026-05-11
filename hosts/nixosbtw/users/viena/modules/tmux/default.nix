@@ -10,6 +10,12 @@
 
     plugins = with pkgs.tmuxPlugins; [
       vim-tmux-navigator
+      {
+        plugin = gruvbox;
+        extraConfig = ''
+          set -g @tmux-gruvbox 'dark'
+        '';
+      }
     ];
 
     extraConfig = ''
