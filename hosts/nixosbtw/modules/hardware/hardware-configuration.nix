@@ -7,46 +7,44 @@
   modulesPath,
   ...
 }:
+
 {
   imports = [
     (modulesPath + "/installer/scan/not-detected.nix")
   ];
-
   boot = {
     initrd = {
       availableKernelModules = [
         "xhci_pci"
         "nvme"
-        "usb_storage"
-        "sd_mod"
+        "usbhid"
       ];
-      kernelModules = [ ];
       luks.devices."cryptroot".device = "/dev/disk/by-uuid/d5be744f-11e5-42f8-82be-12044d5b333e";
+      kernelModules = [ ];
     };
     kernelModules = [ "kvm-intel" ];
     extraModulePackages = [ ];
+
   };
 
   fileSystems = {
+    "/" = {
+      device = "/dev/mapper/cryptroot";
+      fsType = "ext4";
+    };
 
     "/boot" = {
-      device = "/dev/disk/by-uuid/12F0-CB19";
+      label = "EFI";
       fsType = "vfat";
       options = [
         "fmask=0022"
         "dmask=0022"
       ];
     };
-
-    "/" = {
-      device = "/dev/mapper/cryptroot";
-      fsType = "ext4";
-    };
-
   };
 
   swapDevices = [
-    { device = "/dev/disk/by-uuid/794d460b-42aa-45f5-ac09-2bba53a340b8"; }
+    { label = "SWAP"; }
   ];
 
   nixpkgs.hostPlatform = lib.mkDefault "x86_64-linux";
