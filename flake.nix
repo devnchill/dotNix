@@ -13,10 +13,11 @@
   };
 
   outputs =
-    inputs@{
+    {
       nixpkgs,
       home-manager,
       pre-commit-hooks,
+      spicetify-nix,
       ...
     }:
     let
@@ -30,7 +31,7 @@
           useUserPackages = true;
           backupFileExtension = "backup";
           users.viena = ./hosts/nixosbtw/users/viena/home.nix;
-          extraSpecialArgs = { inherit inputs; };
+          extraSpecialArgs = { inherit spicetify-nix; };
         };
       };
 
