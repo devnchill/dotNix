@@ -1,15 +1,7 @@
 { ... }:
 {
   imports = [
-    ./modules/cli
-    ./modules/gtk
-    ./modules/git
-    ./modules/nvim
-    ./modules/fish
-    ./modules/tmux
-    ./modules/scripts
-    ./modules/spicetify
-    ./modules/programming
+    ../../../../modules/home
   ];
 
   home = {

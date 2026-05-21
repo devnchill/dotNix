@@ -1,15 +1,6 @@
 _: {
   imports = [
-    ./modules/hardware
-    ./modules/boot
-    ./modules/network
-    ./modules/services
-    ./modules/users
-    ./modules/cachix
-    ./modules/desktop
-    ./modules/programs
-    ./modules/virtualization
-    ./modules/fonts
+    ../../modules/os
   ];
 
   time.timeZone = "Asia/Kolkata";
