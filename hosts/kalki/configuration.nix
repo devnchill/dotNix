@@ -1,5 +1,6 @@
 _: {
   imports = [
+    ../../dev/dev-setup.nix
     ./users
     ./hardware-configuration.nix
     ./packages.nix
