@@ -56,5 +56,8 @@
         host    all       all   ::1/128    md5
       '';
     };
+
+    gvfs.enable = true;
+    tumbler.enable = true;
   };
 }
