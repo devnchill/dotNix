@@ -1,7 +1,6 @@
 _: {
   imports = [
     ./hardware
-    ./boot
     ./network
     ./services
     ./users

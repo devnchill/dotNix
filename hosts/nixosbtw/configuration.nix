@@ -3,6 +3,14 @@ _: {
     ../../modules/os
   ];
 
+  boot = {
+    tmp.cleanOnBoot = true;
+    loader = {
+      systemd-boot.enable = true;
+      efi.canTouchEfiVariables = true;
+    };
+  };
+
   time.timeZone = "Asia/Kolkata";
 
   nixpkgs.config.allowUnfree = true;
@@ -12,7 +20,6 @@ _: {
     "flakes"
   ];
 
-  environment.localBinInPath = true;
   environment.sessionVariables = {
     NIXOS_OZONE_WL = "1";
   };
