@@ -11,6 +11,8 @@ _: {
     };
   };
 
+  networking.hostName = "nixosbtw";
+
   time.timeZone = "Asia/Kolkata";
 
   nixpkgs.config.allowUnfree = true;
