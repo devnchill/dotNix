@@ -3,14 +3,17 @@ let
   devnchillKey = "devnchill.cachix.org-1:TilbmG02gm6LclTLYflIWNxmOXKZLMf6E/Os9DxAjHc=";
 in
 {
-  nix = {
-    settings.substituters = [
-      "https://devnchill.cachix.org"
-      "https://cache.nixos.org"
-    ];
+  config = {
+    nix = {
+      settings = {
+        extra-substituters = [
+          "https://devnchill.cachix.org?priority=30"
+        ];
 
-    settings.trusted-public-keys = [
-      devnchillKey
-    ];
+        trusted-public-keys = [
+          devnchillKey
+        ];
+      };
+    };
   };
 }
