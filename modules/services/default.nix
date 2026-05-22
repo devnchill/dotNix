@@ -1,0 +1,9 @@
+[
+  ./dns.nix
+  ./docker.nix
+  ./pipewire.nix
+  ./postgres.nix
+  ./sddm.nix
+  ./services.nix
+  ./thunar.nix
+]

@@ -1,7 +1,4 @@
 _: {
-  imports = [
-    ./packages.nix
-  ];
   programs = {
     fish.enable = true;
     niri.enable = true;
