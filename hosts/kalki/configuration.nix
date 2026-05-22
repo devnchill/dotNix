@@ -1,6 +1,6 @@
 _: {
   imports = [
-    ../../modules/os
+    ./users
   ];
 
   boot = {
@@ -11,7 +11,7 @@ _: {
     };
   };
 
-  networking.hostName = "nixosbtw";
+  networking.hostName = "kalki";
 
   time.timeZone = "Asia/Kolkata";
 
