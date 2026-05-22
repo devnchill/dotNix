@@ -149,8 +149,8 @@ binds {
     Mod+Return hotkey-overlay-title="Open a Terminal: kitty" { spawn "kitty"; }
     Alt+Shift+D {spawn "vesktop";}
     Alt+Shift+Z { spawn "brave" "--window-name=coding" "--profile-directory=Default"; }
-    Alt+Shift+C { spawn "brave" "--window-name=study" "--profile-directory=Profile 1"; }
-    Alt+Shift+B { spawn "brave" "--window-name=fun" "--profile-directory=Profile 2"; }
+    Alt+Shift+C { spawn "brave" "--window-name=study" "--profile-directory=Profile 2"; }
+    Alt+Shift+B { spawn "brave" "--window-name=fun" "--profile-directory=Profile 3"; }
     Alt+Shift+S {spawn "spotify";}
     Mod+D hotkey-overlay-title="Open rofi" { spawn-sh "rofi -show drun"; }
 	Mod+T {spawn "thunar";}
