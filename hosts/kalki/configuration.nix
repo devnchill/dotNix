@@ -2,7 +2,7 @@ _: {
   imports = [
     ./users
     ./hardware-configuration.nix
-    ../../modules/nixos
+    ./toggles.nix
   ];
 
   boot = {

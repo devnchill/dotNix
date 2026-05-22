@@ -1,10 +1,10 @@
 { lib, config, ... }:
 let
   devnchillKey = "devnchill.cachix.org-1:TilbmG02gm6LclTLYflIWNxmOXKZLMf6E/Os9DxAjHc=";
-  cfg = config.devnchillCache;
+  cfg = config.dotnix.cache;
 in
 {
-  options.devnchillCache = {
+  options.dotnix.cache = {
     enable = lib.options.mkEnableOption "devnchill cache";
   };
 
