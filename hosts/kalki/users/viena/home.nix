@@ -1,6 +1,7 @@
 { ... }:
 {
   imports = [
+    ../../../../modules/home
   ];
 
   home = {

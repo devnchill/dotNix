@@ -1,9 +1,0 @@
-[
-  ./fish.nix
-  ./cli.nix
-  ./git.nix
-  ./nvim.nix
-  ./packages.nix
-  ./spicetify.nix
-  ./tmux.nix
-]

@@ -3,8 +3,8 @@
 {
   fonts = {
     packages = [
-      (pkgs.callPackage ../../../pkgs/fonts/dankmono.nix { })
-      (pkgs.callPackage ../../../pkgs/fonts/operatormono.nix { })
+      (pkgs.callPackage ../../../../pkgs/fonts/dankmono.nix { })
+      (pkgs.callPackage ../../../../pkgs/fonts/operatormono.nix { })
     ];
 
     fontconfig = {

@@ -1,6 +1,8 @@
 _: {
   imports = [
     ./users
+    ./hardware-configuration.nix
+    ../../modules/nixos
   ];
 
   boot = {
