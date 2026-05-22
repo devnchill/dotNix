@@ -7,7 +7,6 @@ let
 in
 {
   programs.neovim = {
-    enable = true;
     viAlias = true;
     vimAlias = true;
     vimdiffAlias = true;
@@ -39,13 +38,11 @@ in
     ];
 
     extraPackages = with pkgs; [
-      # LSP
       nil
       lua-language-server
       docker-language-server
       yaml-language-server
       gopls
-      # haskell-language-server
       jdt-language-server
       vscode-json-languageserver
       vscode-css-languageserver
@@ -54,8 +51,6 @@ in
       typescript-language-server
       pyright
       rust-analyzer
-
-      # FORMATTERS
       vimPlugins.vim-clang-format
       stylua
       prettierd
@@ -64,13 +59,9 @@ in
       ormolu
       rustfmt
       google-java-format
-
-      # Linters
       statix
       deadnix
       clippy
-
-      # Debuggers
       lldb
     ];
   };

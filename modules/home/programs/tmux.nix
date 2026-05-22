@@ -1,9 +1,6 @@
 { pkgs, ... }:
-
 {
   programs.tmux = {
-    enable = true;
-
     shell = "${pkgs.fish}/bin/fish";
     terminal = "tmux-256color";
     historyLimit = 100000;
@@ -40,7 +37,6 @@
       bind-key -r f run-shell "tmux neww tmux-sessionizer"
       bind-key -r s new-window "switch-tmux-session"
       bind-key -r m switch-client -t main
-
     '';
   };
 }

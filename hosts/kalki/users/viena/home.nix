@@ -4,6 +4,18 @@
     ../../../../modules/home
   ];
 
+  programs = {
+    fish.enable = true;
+    starship.enable = true;
+    git.enable = true;
+    neovim.enable = true;
+    tmux.enable = true;
+    spicetify.enable = true;
+    fzf.enable = true;
+    zoxide.enable = true;
+    direnv.enable = true;
+  };
+
   home = {
     username = "viena";
     homeDirectory = "/home/viena";
