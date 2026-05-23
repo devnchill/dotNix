@@ -2,6 +2,7 @@ _: {
   imports = [
     ./users
     ./hardware-configuration.nix
+    ./packages.nix
     ./toggles.nix
   ];
 
