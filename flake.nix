@@ -13,10 +13,11 @@
   };
 
   outputs =
-    inputs@{
+    {
       nixpkgs,
       home-manager,
       pre-commit-hooks,
+      spicetify-nix,
       ...
     }:
     let
@@ -29,8 +30,8 @@
           useGlobalPkgs = true;
           useUserPackages = true;
           backupFileExtension = "backup";
-          users.viena = ./hosts/nixosbtw/users/viena/home.nix;
-          extraSpecialArgs = { inherit inputs; };
+          users.viena = ./hosts/kalki/users/viena/home.nix;
+          extraSpecialArgs = { inherit spicetify-nix; };
         };
       };
 
@@ -44,11 +45,11 @@
       };
     in
     {
-      nixosConfigurations.nixosbtw = nixpkgs.lib.nixosSystem {
+      nixosConfigurations.kalki = nixpkgs.lib.nixosSystem {
         modules = [
           { nixpkgs.overlays = overlays; }
 
-          ./hosts/nixosbtw/configuration.nix
+          ./hosts/kalki/configuration.nix
           home-manager.nixosModules.home-manager
           hmConfig
         ];

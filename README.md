@@ -8,7 +8,7 @@ From the repo root:
 
 - replace my username with your username
 - replace my hardware.conf with yours
-- `sudo nixos-rebuild switch --flake .#nixosbtw`
+- `sudo nixos-rebuild switch --flake .#kalki`
 
 assumes you already know NixOS + flakes. read the config before building if you value your install.
 
