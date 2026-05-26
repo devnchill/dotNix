@@ -6,9 +6,12 @@ end
 
 local function workspace(opts)
 	if is_opensource(opts) then
-		return "opensource-related workspace"
+		return "in opensource-related workspace"
 	end
-	return opts.workspace
+	if not opts.workspace or opts.workspace == "" then
+		return "in god knows where"
+	end
+	return ("in %s"):format(opts.workspace)
 end
 
 local function editing(opts)
