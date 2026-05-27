@@ -68,7 +68,7 @@ jobs:
         run: nix flake check --keep-going
 
       - name: Build NixOS system
-        run: nix build .#nixosConfigurations.nixosbtw.config.system.build.toplevel --no-link
+        run: nix build .#nixosConfigurations.kalki.config.system.build.toplevel --no-link
 
   create_pr:
     name: Create and merge PR
