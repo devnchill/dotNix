@@ -18,8 +18,11 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v6
 
+      - name: Remove bloat
+        uses: wimpysworld/nothing-but-nix@main
+
       - name: Install Nix
-        uses: cachix/install-nix-action@v31
+        uses: DeterminateSystems/nix-installer-action@main
 
       - name: Update flake.lock
         run: nix flake update
@@ -55,8 +58,11 @@ jobs:
         with:
           name: flake_lock
 
+      - name: Remove bloat
+        uses: wimpysworld/nothing-but-nix@main
+
       - name: Install Nix
-        uses: cachix/install-nix-action@v31
+        uses: DeterminateSystems/nix-installer-action@main
 
       - name: Setup Cachix
         uses: cachix/cachix-action@v14
