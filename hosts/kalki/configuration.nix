@@ -29,5 +29,7 @@ _: {
     NIXOS_OZONE_WL = "1";
   };
 
+  documentation.dev.enable = true;
+
   system.stateVersion = "25.11";
 }
