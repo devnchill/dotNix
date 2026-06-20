@@ -26,10 +26,17 @@ lz.load({
 					haskell = { "ormolu" },
 					java = { "google-java-format" },
 				},
-				format_on_save = {
-					timeout_ms = 500,
-					lsp_format = "fallback",
-				},
+				format_on_save = function(bufnr)
+					print("format_on_save called")
+
+					if vim.g.disable_autoformat or vim.b[bufnr].disable_autoformat then
+						print("formatting disabled")
+						return
+					end
+
+					print("formatting enabled")
+					return { timeout_ms = 500, lsp_format = "fallback" }
+				end,
 			})
 		end,
 	},
