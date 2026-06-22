@@ -14,6 +14,8 @@ _: {
     };
   };
 
+  disko.devices = import ../../disko/512.nix { diskDevice = "/dev/nvme0n1"; };
+
   networking.hostName = "kalki";
 
   time.timeZone = "Asia/Kolkata";
