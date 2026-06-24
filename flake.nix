@@ -7,9 +7,6 @@
     home-manager.url = "github:nix-community/home-manager";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
 
-    disko.url = "github:nix-community/disko/latest";
-    disko.inputs.nixpkgs.follows = "nixpkgs";
-
     spicetify-nix.url = "github:Gerg-L/spicetify-nix";
 
     pre-commit-hooks.url = "github:cachix/pre-commit-hooks.nix";
@@ -19,7 +16,7 @@
     {
       nixpkgs,
       home-manager,
-      disko,
+
       spicetify-nix,
       pre-commit-hooks,
       ...
@@ -56,7 +53,6 @@
           ./hosts/kalki/configuration.nix
           home-manager.nixosModules.home-manager
           hmConfig
-          disko.nixosModules.disko
         ];
       };
 

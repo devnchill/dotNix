@@ -12,6 +12,7 @@
   imports = [
     (modulesPath + "/installer/scan/not-detected.nix")
   ];
+
   boot = {
     initrd = {
       availableKernelModules = [
@@ -19,12 +20,33 @@
         "nvme"
         "usbhid"
       ];
+      luks.devices."cryptroot".device = "/dev/disk/by-uuid/d5be744f-11e5-42f8-82be-12044d5b333e";
       kernelModules = [ ];
     };
     kernelModules = [ "kvm-intel" ];
     extraModulePackages = [ ];
 
   };
+
+  fileSystems = {
+    "/" = {
+      device = "/dev/mapper/cryptroot";
+      fsType = "ext4";
+    };
+
+    "/boot" = {
+      label = "EFI";
+      fsType = "vfat";
+      options = [
+        "fmask=0022"
+        "dmask=0022"
+      ];
+    };
+  };
+
+  swapDevices = [
+    { label = "SWAP"; }
+  ];
 
   nixpkgs.hostPlatform = lib.mkDefault "x86_64-linux";
   hardware.cpu.intel.updateMicrocode = lib.mkDefault config.hardware.enableRedistributableFirmware;
