@@ -34,6 +34,8 @@
       '
 
       bind-key -r D run-shell "tmux-sessionizer ~/dev/learning/DSA"
+      bind-key -r N run-shell "tmux-sessionizer ~/dev/os-contribution/Owasp/Nest"
+      bind-key -r T run-shell "tmux-sessionizer ~/dev/os-contribution/NixOs/nix-security-tracker"
       bind-key -r f run-shell "tmux neww tmux-sessionizer"
       bind-key -r s new-window "switch-tmux-session"
       bind-key -r m switch-client -t main
