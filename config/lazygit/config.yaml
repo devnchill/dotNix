@@ -1,0 +1,129 @@
+customCommands:
+  - key: "C"
+    command: |
+      git commit -m "{{ .Form.Type }}{{if .Form.Scopes}}({{ .Form.Scopes }}){{end}}: {{ .Form.Description }}" \
+      {{- if .Form.LongDescription }}
+      -m "{{ .Form.LongDescription }}" \
+      {{- end }}
+      {{- if .Form.BreakingChange }}
+      -m "BREAKING CHANGE: {{ .Form.BreakingChange }}"
+      {{- end }}
+    description: "commit with commitizen"
+    context: "files"
+    prompts:
+      - type: "menu"
+        title: "Select the type of change you are committing."
+        key: "Type"
+        options:
+          - name: "Feature m"
+            description: "a new feature"
+            value: "feat"
+          - name: "Fix p"
+            description: "a bug fix"
+            value: "fix"
+          - name: "Documentation p"
+            description: "Documentation only changes"
+            value: "docs"
+          - name: "Styles"
+            description: "Changes that do not affect the meaning of the code (white-space, formatting, missing semi-colons, etc)"
+            value: "style"
+          - name: "Code Refactoring p"
+            description: "A code change that neither fixes a bug nor adds a feature"
+            value: "refactor"
+          - name: "Performance Improvements p"
+            description: "A code change that improves performance"
+            value: "perf"
+          - name: "Tests"
+            description: "Adding missing tests or correcting existing tests"
+            value: "test"
+          - name: "Builds"
+            description: "Changes that affect the build system or external dependencies (example scopes: gulp, broccoli, npm)"
+            value: "build"
+          - name: "Continuous Integration"
+            description: "Changes to our CI configuration files and scripts (example scopes: Travis, Circle, BrowserStack, SauceLabs)"
+            value: "ci"
+          - name: "Chores p"
+            description: "Other changes that don't modify src or test files"
+            value: "chore"
+          - name: "Reverts"
+            description: "Reverts a previous commit"
+            value: "revert"
+      - type: "input"
+        title: "Enter the scope(s) of this change."
+        key: "Scopes"
+      - type: "input"
+        title: "Enter the short description of the change."
+        key: "Description"
+      - type: "input"
+        title: "Enter a more detailed description (optional)."
+        key: "LongDescription"
+      - type: "input"
+        title: "Describe the breaking change, if any (leave empty if none)."
+        key: "BreakingChange"
+      - type: "confirm"
+        title: "Is the commit message correct?"
+        body: |
+          {{ .Form.Type }}{{if .Form.Scopes}}({{ .Form.Scopes }}){{end}}: {{ .Form.Description }}
+          {{- if .Form.LongDescription }}
+
+          {{ .Form.LongDescription }}
+          {{- end }}
+          {{- if .Form.BreakingChange }}
+
+          BREAKING CHANGE: {{ .Form.BreakingChange }}
+          {{- end }}
+  - key: "B"
+    command: |
+      # Get the last commit message
+      LAST_COMMIT=$(git log -1 --pretty=%B)
+
+      # Determine bump type based on commit message content
+      if echo "$LAST_COMMIT" | grep -q "BREAKING CHANGE"; then
+        echo "Major change detected."
+        bump major --no-commit;
+      elif echo "$LAST_COMMIT" | grep -q "^feat"; then
+        echo "Feature commit detected."
+        bump minor --no-commit;
+      elif echo "$LAST_COMMIT" | grep -q "^fix"; then
+        echo "Fix commit detected."
+        bump patch --no-commit;
+      elif echo "$LAST_COMMIT" | grep -q "^docs"; then
+        echo "Docs commit detected."
+        bump patch --no-commit;
+      elif echo "$LAST_COMMIT" | grep -q "^refactor"; then
+        echo "Refactor commit detected."
+        bump patch --no-commit;
+      elif echo "$LAST_COMMIT" | grep -q "^perf"; then
+        echo "Performance improvement detected."
+        bump patch --no-commit;
+      elif echo "$LAST_COMMIT" | grep -q "^chore"; then
+        echo "Chore commit detected."
+        bump patch --no-commit;
+      else
+        echo "Commit type does not require a version bump (e.g., style, test, build, ci, revert)."
+        exit 0;
+      fi
+
+      # Add the updated version file to staging and amend the last commit
+      git add $(find lib -type f -name version.rb)
+      git commit --amend --no-edit
+
+      # Get the new version number from the version file
+      new_version=$(bump current)
+      echo "Version bumped to ${new_version}"
+
+      # Create an annotated Git tag for the new version and push it
+      git tag -a v${new_version} -m "Version ${new_version}"
+      git push origin v${new_version}
+    description: "Bump version based on last commit and push a git tag"
+    context: "global"
+
+git:
+  paging:
+    colorArg: always
+    pager: delta --paging=never --line-numbers --hyperlinks --hyperlinks-file-link-format="lazygit-edit://{path}:{line}"
+
+os:
+  editPreset: "nvim-remote"
+gui:
+  nerdFontsVersion: "3"
