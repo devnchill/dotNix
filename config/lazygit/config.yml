@@ -240,9 +240,9 @@ customCommands:
     description: "Bump version based on last commit and push a git tag"
     context: "global"
 git:
-  paging:
-    colorArg: always
-    pager: delta --paging=never --line-numbers --hyperlinks --hyperlinks-file-link-format="lazygit-edit://{path}:{line}"
+  pagers:
+    - pager: delta --paging=never --line-numbers --hyperlinks --hyperlinks-file-link-format="lazygit-edit://{path}:{line}"
+      colorArg: always
 os:
   editPreset: "nvim-remote"
 gui:
