@@ -3,6 +3,7 @@
   environment.systemPackages = with pkgs; [
     man-pages
     man-pages-posix
+    delta
     qbittorrent
     opencode
     wl-clipboard
