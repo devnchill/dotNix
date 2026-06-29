@@ -3,7 +3,7 @@
     ./direnv.nix
     ./fish.nix
     ./git.nix
-    ./packages.nix
+    ./lazygit.nix
     ./nvim.nix
     ./spicetify.nix
     ./tmux.nix
