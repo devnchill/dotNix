@@ -6,7 +6,7 @@ _: {
         {
           key = "C";
           command = ''
-            git commit -m "{{ .Form.Type }}{{if .Form.Scopes}}({{ .Form.Scopes }}){{end}}: {{ .Form.Description }}" \
+            git commit -s -m "{{ .Form.Type }}{{if .Form.Scopes}}({{ .Form.Scopes }}){{end}}: {{ .Form.Description }}" \
             {{- if .Form.LongDescription }}
             -m "{{ .Form.LongDescription }}" \
             {{- end }}
@@ -278,7 +278,7 @@ _: {
                 set NEW_VERSION (cat $VERSION_FILE)
             end
 
-            git commit --amend --no-edit
+            git commit -s --amend --no-edit
             git tag -a v$NEW_VERSION -m "Version $NEW_VERSION"
             git push origin v$NEW_VERSION
             echo "Version bumped to v$NEW_VERSION"
@@ -287,12 +287,17 @@ _: {
           context = "global";
         }
       ];
-      git.pagers = [
-        {
-          pager = ''delta --paging=never --line-numbers --hyperlinks --hyperlinks-file-link-format="lazygit-edit://{path}:{line}"'';
-          colorArg = "always";
-        }
-      ];
+      git = {
+        commit = {
+          signoff = true;
+        };
+        pagers = [
+          {
+            pager = ''delta --paging=never --line-numbers --hyperlinks --hyperlinks-file-link-format="lazygit-edit://{path}:{line}"'';
+            colorArg = "always";
+          }
+        ];
+      };
       os.editPreset = "nvim-remote";
       gui.nerdFontsVersion = "3";
     };
