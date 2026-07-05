@@ -10,7 +10,6 @@
         users = [ "viena" ];
       };
       postgres.enable = true;
-      dnscrypt.enable = true;
       sddm.enable = true;
     };
     programs = {

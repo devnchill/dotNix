@@ -1,6 +1,5 @@
 {
   imports = [
-    ./dns.nix
     ./docker.nix
     ./others.nix
     ./pipewire.nix
