@@ -3,6 +3,7 @@ _: {
     ./users
     ./hardware-configuration.nix
     ./packages.nix
+    ./programs.nix
     ./toggles.nix
   ];
 
