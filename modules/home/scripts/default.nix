@@ -1,7 +1,7 @@
-{ pkgs, ... }:
+{ pkgs, config, ... }:
 let
   myScripts = pkgs.stdenv.mkDerivation {
-    pname = "viena-scripts";
+    pname = "${config.home.username}-scripts";
     version = "1.0";
 
     src = ./bin;

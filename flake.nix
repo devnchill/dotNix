@@ -26,13 +26,18 @@
       overlays = [ (import ./overlay) ];
       pkgs = import nixpkgs { inherit system overlays; };
 
+      sharedConfig = ./config;
+
       hmConfig = {
         home-manager = {
           useGlobalPkgs = true;
           useUserPackages = true;
           backupFileExtension = "backup";
           users.viena = ./hosts/kalki/users/viena/home.nix;
-          extraSpecialArgs = { inherit spicetify-nix; };
+          extraSpecialArgs = {
+            inherit spicetify-nix;
+            inherit sharedConfig;
+          };
         };
       };
 
