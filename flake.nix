@@ -24,39 +24,16 @@
       system = "x86_64-linux";
       overlays = [ (import ./overlay) ];
       pkgs = import nixpkgs { inherit system overlays; };
-
       sharedConfig = ./config;
-
-      hmConfig = {
-        home-manager = {
-          useGlobalPkgs = true;
-          useUserPackages = true;
-          backupFileExtension = "backup";
-          users.viena = ./hosts/kalki/users/viena/home.nix;
-          extraSpecialArgs = {
-            inherit spicetify-nix;
-            inherit sharedConfig;
-          };
-        };
-      };
-
-      preCommitCheck = pre-commit-hooks.lib.${system}.run {
-        src = ./.;
-        hooks = {
-          nixfmt.enable = true;
-          statix.enable = true;
-          deadnix.enable = true;
-        };
-      };
+      preCommitCheck = import ./checks/pre-commit.nix { inherit pre-commit-hooks system; };
     in
     {
       nixosConfigurations.kalki = nixpkgs.lib.nixosSystem {
         modules = [
           { nixpkgs.overlays = overlays; }
-
-          ./hosts/kalki/configuration.nix
           home-manager.nixosModules.home-manager
-          hmConfig
+          (import ./hosts/kalki/home-config.nix { inherit spicetify-nix sharedConfig; })
+          ./hosts/kalki/configuration.nix
         ];
       };
 
