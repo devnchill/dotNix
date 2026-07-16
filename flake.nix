@@ -16,7 +16,6 @@
     {
       nixpkgs,
       home-manager,
-
       spicetify-nix,
       pre-commit-hooks,
       ...
