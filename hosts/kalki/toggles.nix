@@ -14,7 +14,6 @@
     };
     programs = {
       fish.enable = true;
-      gnupg.enable = true;
       neovim.enable = true;
       niri.enable = true;
       obs-studio.enable = true;

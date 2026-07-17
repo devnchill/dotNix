@@ -1,4 +1,4 @@
-{ sharedConfig, pkgs, ... }:
+{ sharedConfig, ... }:
 let
   username = "viena";
 in
@@ -20,9 +20,10 @@ in
         core.editor = "nvim";
         init.defaultbranch = "main";
         pull.rebase = false;
+        gpg.format = "ssh";
         commit.gpgsign = true;
-        user.signingkey = "F826F032DDDA5560";
-        gpg.program = "${pkgs.gnupg}/bin/gpg";
+        tag.gpgSign = true;
+        user.signingkey = "~/.ssh/github.pub";
       };
     };
     neovim.enable = true;
@@ -33,6 +34,7 @@ in
     direnv.enable = true;
     ssh = {
       enable = true;
+      enableDefaultConfig = false;
       settings = {
         "Host github.com".IdentityFile = "~/.ssh/github";
       };
