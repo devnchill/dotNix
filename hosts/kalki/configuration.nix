@@ -5,6 +5,7 @@ _: {
     ./packages.nix
     ./programs.nix
     ./toggles.nix
+    ./sops.nix
   ];
 
   boot = {

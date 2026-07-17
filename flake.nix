@@ -7,6 +7,9 @@
     home-manager.url = "github:nix-community/home-manager";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
 
+    sops-nix.url = "github:Mic92/sops-nix";
+    sops-nix.inputs.nixpkgs.follows = "nixpkgs";
+
     spicetify-nix.url = "github:Gerg-L/spicetify-nix";
 
     pre-commit-hooks.url = "github:cachix/pre-commit-hooks.nix";
@@ -18,6 +21,7 @@
       home-manager,
       spicetify-nix,
       pre-commit-hooks,
+      sops-nix,
       ...
     }:
     let
@@ -34,6 +38,7 @@
           home-manager.nixosModules.home-manager
           (import ./hosts/kalki/home-config.nix { inherit spicetify-nix sharedConfig; })
           ./hosts/kalki/configuration.nix
+          sops-nix.nixosModules.sops
         ];
       };
 

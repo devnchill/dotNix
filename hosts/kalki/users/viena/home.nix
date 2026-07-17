@@ -31,6 +31,12 @@ in
     fzf.enable = true;
     zoxide.enable = true;
     direnv.enable = true;
+    ssh = {
+      enable = true;
+      settings = {
+        "Host github.com".IdentityFile = "~/.ssh/github";
+      };
+    };
   };
 
   home = {

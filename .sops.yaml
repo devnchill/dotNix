@@ -1,0 +1,7 @@
+keys:
+  - &host_kalki age1kyq64put4eywv7sza9cc9qrue9z6myxar24u42lpup4d056zvclq992vay
+creation_rules:
+  - path_regex: secrets/.*\.yaml$
+    key_groups:
+      - age:
+          - *host_kalki
