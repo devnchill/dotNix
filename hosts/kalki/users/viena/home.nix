@@ -21,7 +21,7 @@ in
         init.defaultbranch = "main";
         pull.rebase = false;
         commit.gpgsign = true;
-        user.signingkey = "F826F032DDDA5560";
+        user.signingkey = "D4C354C82D9F5746D4AD856EC6A572D41F1674CA";
         gpg.program = "${pkgs.gnupg}/bin/gpg";
       };
     };

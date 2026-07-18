@@ -32,5 +32,8 @@ _: {
 
   documentation.dev.enable = true;
 
+  programs.ssh.startAgent = true;
+  services.gnome.gcr-ssh-agent.enable = false;
+
   system.stateVersion = "25.11";
 }
