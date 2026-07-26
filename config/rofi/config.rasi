@@ -1,0 +1,160 @@
+* {
+    black: #000000;
+    grey-bg: #393939;
+
+    border: #323232;
+    border-strong: #1f1f1f;
+    border-selected: #373737;
+
+    white: #ffffff;
+    grey-text: #d6d6d6;
+}
+
+configuration {
+    modi: "drun,filebrowser,window";
+    show-icons: true;
+
+    display-drun: "  apps";
+    display-filebrowser: "  files";
+    display-window: "  window";
+
+    sidebar-mode: true;
+    drun-display-format: "{icon} {name}";
+}
+
+window {
+    width: 640px;
+
+    background-color: @black;
+
+    border: 2px;
+    border-color: @border-strong;
+    border-radius: 12px;
+}
+
+mainbox {
+    children: [inputbar, listbox];
+
+    spacing: 12px;
+    padding: 12px;
+}
+
+inputbar {
+    children: [prompt, entry];
+}
+
+prompt {
+    enabled: false;
+    text-color: @white;
+}
+
+entry {
+    expand: true;
+
+    placeholder: "Search...";
+    cursor: pointer;
+
+    padding: 10px 14px;
+
+    background-color: @grey-bg;
+
+    border: 2px;
+    border-color: @border;
+
+    border-radius: 8px;
+
+    text-color: @white;
+}
+
+listbox {
+    orientation: horizontal;
+
+    spacing: 10px;
+
+    children: [mode-switcher, listview];
+}
+
+mode-switcher {
+    orientation: vertical;
+
+    width: 110px;
+
+    background-color: @grey-bg;
+
+    border: 3px;
+    border-color: @border;
+
+    border-radius: 4px;
+}
+
+button {
+    padding: 8px 10px;
+
+    border-radius: 6px;
+
+    text-color: @grey-text;
+}
+
+button selected {
+    background-color: @black;
+
+    border: 2px;
+    border-color: @border-selected;
+}
+
+listview {
+    columns: 1;
+    lines: 8;
+
+    cycle: false;
+    dynamic: true;
+
+    spacing: 3;
+    padding: 5px;
+
+    background-color: @black;
+
+    border: 2px;
+    border-color: @border;
+
+    border-radius: 8px;
+}
+
+element {
+    padding: 7px 8px;
+
+    background-color: @black;
+
+    border-radius: 6px;
+
+    text-color: @white;
+}
+
+element normal.normal {
+    background-color: @black;
+    text-color: @white;
+}
+
+element alternate.normal {
+    background-color: @black;
+    text-color: @white;
+}
+
+element selected.normal {
+    background-color: @grey-bg;
+    text-color: @white;
+}
+
+element-text {
+    background-color: transparent;
+    text-color: inherit;
+}
+
+element-icon {
+    background-color: transparent;
+}
+
+scrollbar {
+    width: 0px;
+    handle-width: 0px;
+}

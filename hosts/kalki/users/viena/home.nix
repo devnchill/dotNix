@@ -41,6 +41,7 @@ in
     file = {
       ".config/kitty".source = sharedConfig + "/kitty";
       ".config/niri".source = sharedConfig + "/niri";
+      ".config/rofi".source = sharedConfig + "/rofi";
       ".config/waybar".source = sharedConfig + "/waybar";
       ".config/nvim".source = sharedConfig + "/nvim";
       ".config/fastfetch".source = sharedConfig + "/fastfetch";
