@@ -21,6 +21,7 @@
       thunar.enable = true;
       tmux.enable = true;
       waybar.enable = true;
+      steam.enable = true;
     };
     cache.enable = true;
   };
