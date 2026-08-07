@@ -7,11 +7,8 @@
     colorScheme = "dark";
 
     theme = {
-      name = "Gruvbox-Dark";
-      package = pkgs.gruvbox-gtk-theme.override {
-        colorVariants = [ "dark" ];
-        tweakVariants = [ "black" ];
-      };
+      name = "gruvbox-dark";
+      package = pkgs.gruvbox-dark-gtk;
     };
 
     iconTheme = {
