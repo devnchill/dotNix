@@ -291,9 +291,9 @@ _: {
         commit = {
           signoff = true;
         };
-        pagers = [
+        diffRenders = [
           {
-            pager = ''delta --paging=never --line-numbers --hyperlinks --hyperlinks-file-link-format="lazygit-edit://{path}:{line}"'';
+            command = ''delta --paging=never --line-numbers --hyperlinks --hyperlinks-file-link-format="lazygit-edit://{path}:{line}"'';
             colorArg = "always";
           }
         ];
