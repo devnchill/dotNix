@@ -38,6 +38,69 @@ require("lz.n").load({
 				end,
 				desc = "Dap Terminate",
 			},
+			{
+				"<leader>dn",
+				function()
+					require("dap").step_over()
+				end,
+				desc = "Step over",
+			},
+			{
+				"<leader>dsi",
+				function()
+					require("dap").step_into()
+				end,
+				desc = "Step into",
+			},
+			{
+				"<leader>dso",
+				function()
+					require("dap").step_out()
+				end,
+				desc = "Step out",
+			},
+			{
+				"<leader>dbq",
+				function()
+					require("dap").set_breakpoint(vim.fn.input("Condition: "))
+				end,
+				desc = "Conditional breakpoint",
+			},
+			{
+				"<leader>dbl",
+				function()
+					require("dap").set_breakpoint(nil, nil, vim.fn.input("Log point message: "))
+				end,
+				desc = "Log point",
+			},
+			{
+				"<leader>dbr",
+				function()
+					require("dap").run_last()
+				end,
+				desc = "Run last config",
+			},
+			{
+				"<leader>du",
+				function()
+					require("dapui").toggle()
+				end,
+				desc = "Toggle DAP UI",
+			},
+			{
+				"<leader>dh",
+				function()
+					require("dapui").hover()
+				end,
+				desc = "Hover variable",
+			},
+			{
+				"<leader>de",
+				function()
+					require("dapui").eval()
+				end,
+				desc = "Evaluate cursor",
+			},
 		},
 
 		after = function()
