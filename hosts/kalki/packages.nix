@@ -1,44 +1,45 @@
 { pkgs, ... }:
 {
   environment.systemPackages = with pkgs; [
-    man-pages
-    man-pages-posix
-    delta
-    qbittorrent
-    opencode
-    wl-clipboard
-    cliphist
-    unzip
-    cheese
-    lsof
-    tor-browser
-    gh
-    sddm-astronaut
+    awww
     baobab
-    ncdu
+    bibata-cursors
+    brightnessctl
+    bruno
+    btop
+    cheese
+    cliphist
+    cloc
+    curl
+    delta
+    fastfetch
+    fd
+    file
+    fzf
+    gh
     git-crypt
     git-lfs
-    bruno
-    proton-vpn
-    mpv
-    ripgrep
-    fd
-    xwayland-satellite
     jq
-    brightnessctl
-    swaynotificationcenter
-    bibata-cursors
-    pavucontrol
-    fastfetch
-    rofi
-    awww
-    file
-    wget
-    btop
     kitty
-    curl
-    fzf
+    lsof
+    man-pages
+    man-pages-posix
+    mpv
+    ncdu
+    opencode
+    pavucontrol
+    proton-vpn
+    qbittorrent
+    ripgrep
+    rofi
+    sddm-astronaut
+    swaynotificationcenter
+    tor-browser
+    unzip
     vesktop
+    wget
+    wl-clipboard
+    xwayland-satellite
     zathura
     (brave.override {
       commandLineArgs = [
