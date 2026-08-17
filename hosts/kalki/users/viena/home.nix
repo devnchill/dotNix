@@ -27,7 +27,6 @@ in
     };
     neovim.enable = true;
     tmux.enable = true;
-    spicetify.enable = true;
     fzf.enable = true;
     zoxide.enable = true;
     direnv.enable = true;
