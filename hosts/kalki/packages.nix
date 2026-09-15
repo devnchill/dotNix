@@ -32,6 +32,7 @@
     ripgrep
     rofi
     sddm-astronaut
+    swaylock
     swaynotificationcenter
     tor-browser
     unzip

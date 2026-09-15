@@ -73,6 +73,12 @@ input {
     position x=1280 y=0
 }
 
+switch-events {
+    lid-close { 
+        spawn "sh" "-c" "swaylock";
+    }
+}
+
 layout {
     gaps 15
     center-focused-column "never"
