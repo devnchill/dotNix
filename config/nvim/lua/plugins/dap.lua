@@ -121,14 +121,16 @@ require("lz.n").load({
 				dapui.close()
 			end
 
-			dap.adapters.lldb = {
-				type = "executable",
-				name = "lldb",
-				command = "lldb-dap",
+			dap.adapters = {
+				lldb = {
+					type = "executable",
+					name = "lldb",
+					command = "lldb-dap",
+				},
 			}
 
-			dap.configurations.cpp = {
-				{
+			dap.configurations = {
+				cpp = {
 					name = "Launch",
 					type = "lldb",
 					request = "launch",

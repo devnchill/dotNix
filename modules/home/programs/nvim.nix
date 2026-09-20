@@ -63,31 +63,37 @@ in
     ];
 
     extraPackages = with pkgs; [
-      nil
-      lua-language-server
+      bash-language-server
+      clang-tools
+      clippy
+      deadnix
       docker-language-server
-      yaml-language-server
+      google-java-format
       gopls
+      haskell-language-server
       jdt-language-server
-      vscode-json-languageserver
-      vscode-css-languageserver
-      tailwindcss-language-server
-      ruff
-      typescript-language-server
-      pyright
-      rust-analyzer
-      vimPlugins.vim-clang-format
-      stylua
-      prettierd
-      prettier
+      lldb
+      lua-language-server
+      marksman
+      neocmakelsp
+      nil
       nixfmt
       ormolu
+      prettier
+      prettierd
+      pyright
+      ruff
+      rust-analyzer
       rustfmt
-      google-java-format
       statix
-      deadnix
-      clippy
-      lldb
+      stylua
+      tailwindcss-language-server
+      typescript-language-server
+      vimPlugins.vim-clang-format
+      vscode-css-languageserver
+      vscode-html-languageserver
+      vscode-json-languageserver
+      yaml-language-server
     ];
   };
 }
