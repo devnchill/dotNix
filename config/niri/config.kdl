@@ -56,9 +56,8 @@ input {
 
     mouse {
 		scroll-factor 2
-    }
-
-    trackpoint {
+        accel-speed 1.0
+        accel-profile "flat"
     }
 
      focus-follows-mouse max-scroll-amount="0%"
