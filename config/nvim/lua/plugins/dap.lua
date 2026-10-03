@@ -131,12 +131,14 @@ require("lz.n").load({
 
 			dap.configurations = {
 				cpp = {
-					name = "Launch",
-					type = "lldb",
-					request = "launch",
-					program = function()
-						return vim.fn.input("Path: ", vim.fn.getcwd() .. "/", "file")
-					end,
+					{
+						name = "Debug current file",
+						type = "lldb",
+						request = "launch",
+						program = function()
+							return vim.fn.input("Path: ", vim.fn.getcwd() .. "/", "file")
+						end,
+					},
 				},
 			}
 		end,
