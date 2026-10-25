@@ -1,6 +1,7 @@
 { pkgs, ... }:
 {
   environment.systemPackages = with pkgs; [
+    libreoffice
     davinci-resolve
     awww
     baobab
